@@ -1,0 +1,8 @@
+{
+  "name": "homework1",
+  "dependencies": {
+    "normalize-strings": "normalize#^1.0.4",
+    "jquery": "^3.0.0",
+    "normalize-css": "^4.1.1"
+  }
+}
