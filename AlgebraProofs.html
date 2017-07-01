@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AlgebraProofs</title>
+<link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body><div class="container"><h1 id="доказательства-хуй-незнакомке-в-общественном-месте-показательства">Доказательства-хуй-незнакомке-в-общественном-месте-показательства</h1>
+
+
+
+<h3 id="1-сформулировать-и-доказать-теорему-о-методе-гаусса">1. Сформулировать и доказать теорему о методе Гаусса</h3>
+
+<p>Всякую конечную матрицу можно с помощью элементарных образований к ступенчатому виду.</p>
+
+
+
+<h4 id="доказательство">Доказательство</h4>
+
+<p><script type="math/tex" id="MathJax-Element-1">\square</script> Предъявим алгоритм. Фиксируем текущий элемент в левом верхнем углу (<script type="math/tex" id="MathJax-Element-2">a_{11}</script>).</p>
+
+<p><script type="math/tex" id="MathJax-Element-3">1)</script> Если текущей элемент равен нулю, переходим к пункту <script type="math/tex" id="MathJax-Element-4">2</script>. Иначе называем текущий элемент (<script type="math/tex" id="MathJax-Element-5">a_{ij}</script>) ведущим. Используя ведущую строку добиваемся того, чтобы все элементы ниже и выше <script type="math/tex" id="MathJax-Element-6">a_{ij}</script> были равны <script type="math/tex" id="MathJax-Element-7">0</script>, а на месте <script type="math/tex" id="MathJax-Element-8">a_{ij}</script> стояла единица:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-9">\forall k \neq j \Rightarrow A_k := A_k - A_j \frac{a_{kj}}{a_{ij}} \\
+A_i := A_i \frac{1}{a_{ij}}</script></p>
+
+<p>Выбираем новый текущий элемент, смещаясь в матрице на столбец вправо и на строку вниз.</p>
+
+<p><script type="math/tex" id="MathJax-Element-10">2)</script> Если текущий элемент равен <script type="math/tex" id="MathJax-Element-11">0</script>, то просматриваем все элементы под ним. Если среди них существует ненулевой, меняем местами строку, содержащую ненулевой элемент, с текущей, иначе переходим к пунту <script type="math/tex" id="MathJax-Element-12">3)</script>.</p>
+
+<p><script type="math/tex" id="MathJax-Element-13">3)</script> Если текущий элемент и все под ним равны <script type="math/tex" id="MathJax-Element-14">0</script>, то смещаемся на столбец вправо и переходим к пункту <script type="math/tex" id="MathJax-Element-15">1)</script>.</p>
+
+<p>В том случае, когда мы достигли последнего столбца, прекращаем работу алгоритма.</p>
+
+<p>Так как матрица конечна, то за конечное число шагов алгоритм завершит работу, приведя матрицу к ступенчатому (каноническому) виду. <script type="math/tex" id="MathJax-Element-16">\blacksquare</script></p>
+
+
+
+<h3 id="2-выписать-формулы-крамера-для-квадратной-матрицы-произвольного-порядка-и-доказать-их-предполагается-что-решение-существует-а-свойства-определителя-известны">2. Выписать формулы крамера для квадратной матрицы произвольного порядка и доказать их (предполагается, что решение существует, а свойства определителя известны)</h3>
+
+<p>Для системы <script type="math/tex" id="MathJax-Element-17">A X = B</script></p>
+
+<p><script type="math/tex" id="MathJax-Element-18">x_k = \frac{\Delta_k}{\Delta}</script>, где <script type="math/tex" id="MathJax-Element-19">\Delta</script> — определитель матрицы <script type="math/tex" id="MathJax-Element-20">A</script>, а <script type="math/tex" id="MathJax-Element-21">\Delta_i</script> — определитель матрицы, получаемой из матрицы <script type="math/tex" id="MathJax-Element-22">A</script> заменой <script type="math/tex" id="MathJax-Element-23">i</script>-го столбца на <script type="math/tex" id="MathJax-Element-24">B</script>.</p>
+
+<p><script type="math/tex" id="MathJax-Element-25">\square</script> Т. к. <script type="math/tex" id="MathJax-Element-26">\Delta \neq 0</script>, матрица <script type="math/tex" id="MathJax-Element-27">A</script> обратима, следовательно</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-28">
+X = A^{-1}B = \frac{1}{\det A} \left( 
+\begin{array}{cccc}
+A_{11} & A_{21} & \dots & A_{n1} \\
+A_{12} & A_{22} & \dots & A_{n2} & \\
+\vdots & \vdots & \ddots & \vdots &  \\
+A_{1n} & A_{2n} & \dots & A_{nn} & 
+\end{array}
+ \right) \left(
+\begin{array}{c}
+b_1 \\
+b_2 \\
+\vdots \\
+b_n
+\end{array}
+\right),
+</script></p>
+
+<p>откуда</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-29">
+x_k = \frac{1}{\det A} \sum^n_{i=1} A_{ik} b_i = \frac{1}{\det A} (b_1 A_{1k} + b_2 A_{2k} + \dots + b_n A_{nk}), \\
+k = 1, 2, \dots, n.
+</script></p>
+
+<p>Разложив <script type="math/tex" id="MathJax-Element-30">\Delta_k</script> по <script type="math/tex" id="MathJax-Element-31">k</script>-му столбцу, получаем:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-32">
+\Delta_k = b_1 A_{1k} + b_2 A_{2k} + \dots + b_n A_{nk},
+</script></p>
+
+<p>следовательно</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-33">
+x_k = \frac{\Delta_k}{\Delta}. \blacksquare
+</script></p>
+
+
+
+<h3 id="3-дать-определение-обратной-матрицы-сформулировать-и-доказать-критерий-существования-обратной-матрицы-единственна-ли-обратная-матрица-ответ-обосновать">3. Дать определение обратной матрицы. Сформулировать и доказать критерий существования обратной матрицы. Единственна ли обратная матрица? Ответ обосновать.</h3>
+
+<p><script type="math/tex" id="MathJax-Element-34">A^{-1}</script> — обратная к <script type="math/tex" id="MathJax-Element-35">A</script>, если</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-36">
+A^{-1} A = A A^{-1} = E.
+</script></p>
+
+<p>Обратная матрица единственна. </p>
+
+<p><script type="math/tex" id="MathJax-Element-37">\square</script> Допустим, <script type="math/tex" id="MathJax-Element-38">A^{-1}</script> и <script type="math/tex" id="MathJax-Element-39">\widetilde{A^{-1}}</script> — две разные обратные матрицы к матрице <script type="math/tex" id="MathJax-Element-40">A</script>. Тогда в силу ассоциативности</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-41">
+ A^{-1}  = A^{-1} E = A^{-1} A \widetilde{A^{-1}} = E \widetilde{A^{-1}} = \widetilde{A^{-1}},
+</script></p>
+
+<p>откуда</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-42">
+A^{-1} = \widetilde{A^{-1}}.
+</script></p>
+
+<p>Пришли к противоречию. <script type="math/tex" id="MathJax-Element-43">\blacksquare</script></p>
+
+<p>Матрица обратима тогда и только тогда, когда она невырождена (ее определитель не равен нулю).</p>
+
+<p><script type="math/tex" id="MathJax-Element-44">\square</script> <script type="math/tex" id="MathJax-Element-45">1)</script> См. вопрос 4.</p>
+
+<p><script type="math/tex" id="MathJax-Element-46">2)</script> Допустим, <script type="math/tex" id="MathJax-Element-47">A A^{-1} = E</script>. Тогда</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-48">
+\det A A^{-1} = \det A \det A^{-1} = \det E = 1 \neq 0,
+</script></p>
+
+<p>следовательно, </p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-49">
+\det A \neq 0. \blacksquare
+</script></p>
+
+
+
+<h3 id="4-выписать-формулу-для-нахождения-обратной-матрицы-и-доказать-её">4. Выписать формулу для нахождения обратной матрицы и доказать её.</h3>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-50">
+A^{-1} = \frac{1}{|A|} A^*,
+</script></p>
+
+<p>где <script type="math/tex" id="MathJax-Element-51">A^*</script> — союзная матрица.</p>
+
+<p><script type="math/tex" id="MathJax-Element-52">\square</script> Допустим, <script type="math/tex" id="MathJax-Element-53">|A| \neq 0</script>. Построим союзную матрицу к <script type="math/tex" id="MathJax-Element-54">A</script>:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-55">
+A^* = \left(
+\begin{array}{cccc}
+A_{11} & A_{21} & \dots & A_{n1} & \\
+A_{12} & A_{22} & \dots & A_{n2} & \\
+\vdots & \vdots & \ddots & \vdots & \\
+A_{1n} & A_{2n} & \dots & A_{nn} & \\
+\end{array}
+\right).
+</script></p>
+
+<p>Найдем элементы матрицы <script type="math/tex" id="MathJax-Element-56">A A^* = (b_{ij})</script>:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-57">
+b_{ij} = a_{i1} A_{j1} + a_{i2} A_{j2} + \dots + a_{in} A_{jn}.
+</script></p>
+
+<p>Легко видеть, что <script type="math/tex" id="MathJax-Element-58">b_{ii}</script> — разложение <script type="math/tex" id="MathJax-Element-59">|A|</script> по <script type="math/tex" id="MathJax-Element-60">i</script>-й строке, а <script type="math/tex" id="MathJax-Element-61">b_{ij}</script> (при <script type="math/tex" id="MathJax-Element-62">i \neq j</script>) — фальшивое разложение, следовательно</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-63">
+A A^* = \left(
+\begin{array}{cccc}
+|A| & 0 & \dots & 0 \\
+0 & |A| & \dots & 0 \\
+\vdots & \vdots & \ddots & \vdots & \\
+0 & 0 & \dots & |A| \\ 
+\end{array}
+\right) = |A| E.
+</script></p>
+
+<p>Повторяя аналогичные рассуждения для матрицы <script type="math/tex" id="MathJax-Element-64">A^* A</script>, получаем</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-65">
+A A^* = A^* A = |A| E
+</script></p>
+
+<p>откуда, т. к. <script type="math/tex" id="MathJax-Element-66">|A| \neq 0</script>, следует</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-67">
+A \left( \frac{1}{|A|} A^* \right) = \left( \frac{1}{|A|} A^* \right) A = E,
+</script></p>
+
+<p>следовательно,</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-68">
+\frac{1}{|A|} A^* = \frac{1}{|A|} A^* = A^{-1}.
+</script></p>
+
+
+
+<h3 id="5-сформулировать-критерий-линейной-зависимости-и-доказать-его">5. Сформулировать критерий линейной зависимости и доказать его.</h3>
+
+<p>Система векторов линейно зависима тогда и только тогда, когда один из векторов линейно выражается через другие.</p>
+
+<p><script type="math/tex" id="MathJax-Element-69">\square</script> <script type="math/tex" id="MathJax-Element-70">1)</script> Допустим,</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-71">
+v_n = \alpha_1 v_1 + \alpha_2 v_2 + \dots + \alpha_{n-1} v_{n-1},
+</script></p>
+
+<p>тогда</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-72">
+\alpha_1 v_1 + \alpha_2 v_2 + \dots + \alpha_{n-1} v_{n-1} - v_n = 0,
+</script></p>
+
+<p>следовательно, система векторов <script type="math/tex" id="MathJax-Element-73">v_1, v_2, \dots, v_n</script> линейно зависима, т. к. в разложении нуля есть хотя бы один ненулевой коэфициент (<script type="math/tex" id="MathJax-Element-74">-1</script> при <script type="math/tex" id="MathJax-Element-75">v_n</script>).</p>
+
+<p><script type="math/tex" id="MathJax-Element-76">2)</script> Допустим, система векторов <script type="math/tex" id="MathJax-Element-77">v_1, v_2, \dots, v_n</script> линейно зависима. Тогда </p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-78">
+\alpha_1 v_1 + \alpha_2 v_2 + \dots + \alpha_{n-1} v_{n-1} + \alpha_n v_n = 0,
+</script></p>
+
+<p>и хотя бы один из <script type="math/tex" id="MathJax-Element-79">\alpha_1, \dots, \alpha_n</script> не равен нулю. Допустим, <script type="math/tex" id="MathJax-Element-80">\alpha_n \neq 0</script>. Тогда</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-81">
+v_n = \frac{\alpha_1}{\alpha_n} v_1 + \frac{\alpha_2}{\alpha_n} v_2 + \dots + \frac{\alpha_{n-1}}{\alpha_n} v_{n-1}. \blacksquare
+</script></p>
+
+
+
+<h3 id="6-дать-определение-ранга-как-он-меняется-при-транспонировании-ответ-обосновать-используя-только-определение">6. Дать определение ранга. Как он меняется при транспонировании? Ответ обосновать, используя только определение.</h3>
+
+<p>Ранг матрицы — это порядок ее базисного минора. (Определение Chernyshew-style — прим. г.)</p>
+
+<p>Минор называется базисным, если он ненулевой и имеет порядок <script type="math/tex" id="MathJax-Element-82">i</script>, а все миноры порядка <script type="math/tex" id="MathJax-Element-83">i+1</script> нулевые или не существуют.</p>
+
+<p>При транспонировании ранг матрицы не меняется.</p>
+
+<p><script type="math/tex" id="MathJax-Element-84">\square</script> Допустим, матрица <script type="math/tex" id="MathJax-Element-85">A</script> порядка имеет ненулевой базисный минор <script type="math/tex" id="MathJax-Element-86">M = \det A^{i_1, \dots, i_k}_{j_1, \dots, j_k}</script>. Тогда матрица <script type="math/tex" id="MathJax-Element-87">A^T</script> будет иметь базисный минор <script type="math/tex" id="MathJax-Element-88">\widetilde{M} = \det (A^T)^{i_1, \dots, i_k}_{j_1, \dots, j_k} = \det A^{j_1, \dots, j_k}_{i_1, \dots, i_k}</script>.</p>
+
+<p>Легко видеть, что минор <script type="math/tex" id="MathJax-Element-89">\widetilde{M}</script> отличается от <script type="math/tex" id="MathJax-Element-90">M</script> операцией транспонирования. Так как при транспонировании определитель не меняется, их определители оба ненулевые. Следовательно, <br>
+<script type="math/tex; mode=display" id="MathJax-Element-91">
+\text{rank} A^T \ge \text{rank} A.
+</script></p>
+
+<p>Повторяя рассуждения, получаем</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-92">
+\text{rank} A = \text{rank} (A^T)^T \ge \text{rank} A^T \ge \text{rank}A,
+</script></p>
+
+<p>а следовательно, </p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-93">
+\text{rank} A^T = \text{rank} A. \blacksquare
+</script></p>
+
+
+
+<h3 id="7-сформулировать-и-доказать-критерий-невырожденности-квадратной-матрицы-использующий-понятие-ранга-теорема-о-базисном-миноре-предполагается-известной">7. Сформулировать и доказать критерий невырожденности квадратной матрицы, использующий понятие ранга (теорема о базисном миноре предполагается известной)</h3>
+
+<p>Квадратная матрица невырождена тогда и только тогда, когда ее ранг равен ее размерности.</p>
+
+<p><script type="math/tex" id="MathJax-Element-94">\square</script> Рассмотрим квадратную матрицу размерности <script type="math/tex" id="MathJax-Element-95">n</script>.</p>
+
+<p><script type="math/tex" id="MathJax-Element-96">1)</script> Допустим, матрица невырождена. В качестве базисного минора возьмем определитель всей матрицы. Размерность этого базисного минора равна <script type="math/tex" id="MathJax-Element-97">n</script>. Так как ранг — это размерность базисного минора, в таком случае ранг также равен <script type="math/tex" id="MathJax-Element-98">n</script>.</p>
+
+<p><script type="math/tex" id="MathJax-Element-99">2)</script> Допустим, ранг матрицы равен <script type="math/tex" id="MathJax-Element-100">n</script>. Значит, размерность базисного минора также равна <script type="math/tex" id="MathJax-Element-101">n</script>, следовательно, базисный минор равен определителю матрицы. Так как минор ненулевой, определитель матрицы тоже ненулевой, и матрица невырождена. <script type="math/tex" id="MathJax-Element-102">\blacksquare</script></p>
+
+
+
+<h3 id="8-выписать-свойства-решений-однородных-и-неоднородных-слау-линейная-комбинация-решений-однородной-слау-является-решением-однородной-слау-разность-двух-решений-неоднородной-слау-есть-решение-однородной-слау-сумма-решения-однородной-слау-и-решения-неоднородной-слау-есть-решение-неоднородной-слау-и-доказать-их">8. Выписать свойства решений однородных и неоднородных СЛАУ (линейная комбинация решений однородной СЛАУ является решением однородной СЛАУ, разность двух решений неоднородной СЛАУ есть решение однородной СЛАУ, сумма решения однородной СЛАУ и решения неоднородной СЛАУ есть решение неоднородной СЛАУ) и доказать их.</h3>
+
+<p>Линейная комбинация решений однородной СЛАУ является решением однородной СЛАУ.</p>
+
+<p><script type="math/tex" id="MathJax-Element-103">\square</script> Допустим, <script type="math/tex" id="MathJax-Element-104">A X_1 = 0</script>, и <script type="math/tex" id="MathJax-Element-105">A X_2 = 0</script>. Тогда</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-106">
+A (\alpha X_1 + \beta X_2) = \alpha A X_1 + \beta A X_2 = 0. \blacksquare
+</script></p>
+
+<p>Разность двух решений неоднородной СЛАУ есть решение однородной СЛАУ.</p>
+
+<p><script type="math/tex" id="MathJax-Element-107">\square</script> Допустим, <script type="math/tex" id="MathJax-Element-108">A X_1 = B</script>, и <script type="math/tex" id="MathJax-Element-109">A X_2 = B</script>. Тогда</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-110">
+A (X_1 - X_2) = A X_1 - A X_2 = B - B = 0. \blacksquare
+</script></p>
+
+<p>Сумма решения однородной СЛАУ и решения неоднородной СЛАУ есть решение неоднородной СЛАУ.</p>
+
+<p><script type="math/tex" id="MathJax-Element-111">\square</script> Допустим, <script type="math/tex" id="MathJax-Element-112">A X_1 = 0</script>, и <script type="math/tex" id="MathJax-Element-113">A X_2 = B</script>. Тогда</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-114">
+A (X_1 + X_2) = A X_1 + A X_2 = 0 + B = B. \blacksquare
+</script></p>
+
+
+
+<h3 id="9-сформулировать-теорему-кронекера-капелли-и-доказать-её">9. Сформулировать теорему Кронекера-Капелли и доказать её.</h3>
+
+<p>СЛАУ совместна тогда и только тогда, когда ранг ее основной матрицы равен рангу расширенной.</p>
+
+<p><script type="math/tex" id="MathJax-Element-115">\square</script> <script type="math/tex" id="MathJax-Element-116">1)</script> Если система <script type="math/tex" id="MathJax-Element-117">A \begin{pmatrix} x_1\\ \vdots \\ x_n \end{pmatrix} = B</script> совместна, то вектор <script type="math/tex" id="MathJax-Element-118">B</script> — линейная комбинация векторов-столбцов матрицы <script type="math/tex" id="MathJax-Element-119">A</script> с коэффициентами <script type="math/tex" id="MathJax-Element-120">x_1, \dots, x_n</script>, следовательно, количество линейно независимых столбцов в матрицах <script type="math/tex" id="MathJax-Element-121">A</script> и <script type="math/tex" id="MathJax-Element-122">A|B</script> одинаковое.</p>
+
+<p>Так как ранг матрицы равен количеству линейно независимых столбцов, </p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-123">
+\text{rank} A = \text{rank} (A|B).
+</script></p>
+
+<p><script type="math/tex" id="MathJax-Element-124">2)</script> Допустим <script type="math/tex" id="MathJax-Element-125">\{ A^1, \dots, A^j \}</script> — максимальный линейно независимый набор столбцов матрицы <script type="math/tex" id="MathJax-Element-126">A</script>. Т. к. <script type="math/tex" id="MathJax-Element-127">\text{rank} A = \text{rank} (A|B)</script>, набор <script type="math/tex" id="MathJax-Element-128">\{ A^1, \dots, A^j, B \}</script> будет уже линейно зависимым. Следовательно (там по одной теореме у Кострикина), <script type="math/tex" id="MathJax-Element-129">B</script> — линейная комбинация векторов <script type="math/tex" id="MathJax-Element-130">A^1, \dots, A^j</script>. <script type="math/tex" id="MathJax-Element-131">\blacksquare</script></p>
+
+
+
+<h3 id="10-сформировать-критерий-существования-ненулевого-решения-однородной-системы-линейных-уравнений-с-квадратной-матрицей-и-доказать-его">10. Сформировать критерий существования ненулевого решения однородной системы линейных уравнений с квадратной матрицей и доказать его.</h3>
+
+<p>Однородная СЛАУ с квадратной матрицей имеет ненулевое решение тогда и только тогда, когда ее матрица вырождена.</p>
+
+<p><script type="math/tex" id="MathJax-Element-132">\square</script> Существование ненулевого решения у системы <script type="math/tex" id="MathJax-Element-133">AX = 0</script> равносильно существованию разложения нулевого вектора на векторы-столбцы матрицы <script type="math/tex" id="MathJax-Element-134">A</script> с ненулевыми коэфициентами. Другими словами, ненулевое решение существует тогда, когда столбцы матрицы <script type="math/tex" id="MathJax-Element-135">A</script> линейно зависимы.</p>
+
+<p>По теореме о базисном миноре, столбы базисного минора линейно независимы и другие столбы матрицы является линейными комбинациями столбцов базисного минора. Вследствие этого,</p>
+
+<p><script type="math/tex" id="MathJax-Element-136">1)</script> Если столбцы линейно зависимы, определитель матрицы <script type="math/tex" id="MathJax-Element-137">A</script> не является базисным минором и равен нулю — матрица вырождена.</p>
+
+<p><script type="math/tex" id="MathJax-Element-138">2)</script> Если матрица вырождена — ее определитель равен нулю, тогда он не является базисным минором и какие-то из столбцов матрицы линейно выражаются через другие — столбцы матрицы линейно зависимы. <script type="math/tex" id="MathJax-Element-139">\blacksquare</script></p>
+
+
+
+<h3 id="11-дать-определение-фундаментальной-системы-решений-фср-однородной-системы-решений-доказать-теорему-о-существовании-фср">11. Дать определение фундаментальной системы решений (ФСР) однородной системы решений. Доказать теорему о существовании ФСР.</h3>
+
+<p>Любой набор из <script type="math/tex" id="MathJax-Element-140">n - r</script> линейно независимых решений СЛАУ <script type="math/tex" id="MathJax-Element-141">AX = 0</script>, где <script type="math/tex" id="MathJax-Element-142">n</script> — кол-во неизвестных, <script type="math/tex" id="MathJax-Element-143">r = \text{rank} A</script>.</p>
+
+<p>Пусть дана СЛАУ <script type="math/tex" id="MathJax-Element-144">AX = 0</script> с <script type="math/tex" id="MathJax-Element-145">n</script> неизвестными и <script type="math/tex" id="MathJax-Element-146">\text{rank} A = r</script>. Тогда существует набор из <script type="math/tex" id="MathJax-Element-147">k = n - r</script> решений <script type="math/tex" id="MathJax-Element-148">x^{(1)}, \dots, x^{(k)}</script> этой СЛАУ, образующих ФСР.</p>
+
+<p><script type="math/tex" id="MathJax-Element-149">\square</script> Будем считать, что базисный минор матрицы <script type="math/tex" id="MathJax-Element-150">A</script> находится в левом верхнем углу, т.е. в столбцах <script type="math/tex" id="MathJax-Element-151">1, \dots, r</script> и строках <script type="math/tex" id="MathJax-Element-152">1, \dots, r</script>.</p>
+
+<p>По теореме о базисном миноре уравнения с <script type="math/tex" id="MathJax-Element-153">r + 1</script> по <script type="math/tex" id="MathJax-Element-154">n</script> являются линейными комбинация первых <script type="math/tex" id="MathJax-Element-155">r</script> уравнений. Значит, их можно отбросить без изменения решения системы. Получаем систему</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-156">
+\begin{cases}
+    a_{11}x_1 + a_{12}x_2 + \dots + a_{1n}x_n = 0 \\
+    a_{21}x_1 + a_{22}x_2 + \dots + a_{2n}x_n = 0\\
+    \dots \\
+    a_{r1}x_1 + a_{r2}x_2 + \dots + a_{rn}x_n = 0. \\
+\end{cases}
+</script></p>
+
+<p>Разделим переменные на базисные <script type="math/tex" id="MathJax-Element-157">x_1, \dots, x_r</script> и свободные <script type="math/tex" id="MathJax-Element-158">x_{r+1}, \dots, x_n</script>. Перенесем свободные в правую часть:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-159">
+\begin{cases}
+    a_{11}x_1 + \dots + a_{1r}x_r = - a_{1(r+1)} x_{r+1} - \dots - a_{1n} x_n \\
+    a_{21}x_1 + \dots + a_{2r}x_r = - a_{2(r+1)} x_{r+1} - \dots - a_{2n} x_n \\
+    \dots \\
+    a_{r1}x_1 + \dots + a_{rr}x_r = - a_{r(r+1)} x_{r+1} - \dots - a_{rn} x_n. \\
+\end{cases}
+</script></p>
+
+<p>Если мы присвоим произвольные значения свободным переменным, то относительно базисных мы получим квадратную СЛАУ с невырожденной матрицей, решение которой существует и единственно. Таким образом, решение исходной СЛАУ однозначно определяется значениями свободных неизвестных <script type="math/tex" id="MathJax-Element-160">x_{r+1}, \dots, x_n</script>. Рассмотрим следующие <script type="math/tex" id="MathJax-Element-161">k = n - r</script> серий значений свободных неизвестных:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-162">
+\begin{array}
+& x^{(1)}_{r+1} = 1,  & x^{(2)}_{r+1} = 0, & \dots & x^{(k)}_{r+1} = 0, \\
+x^{(1)}_{r+2} = 0, & x^{(2)}_{r+} = 1, & \dots & x^{(k)}_{r+2} = 0, \\
+\vdots & \vdots & \ddots & \vdots & \\
+x^{(1)}_n = 0, & x^{(2)}_n = 0, & \dots & x^{(k)}_n = 1.
+\end{array}
+</script></p>
+
+<p><script type="math/tex" id="MathJax-Element-163">i</script>-й серии значений серии значений свободных переменных однозначно соответствуют значения <script type="math/tex" id="MathJax-Element-164">x_1^{(i)}, \dots, x_r^{(i)}</script> базисных. Покажем, что столбцы:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-165">
+x^{(i)} = \begin{pmatrix}
+x^{(i)}_1\\
+\vdots \\
+x^{(i)}_n
+\end{pmatrix}, i = \overline{1, k}
+</script></p>
+
+<p>образуют ФСР. Т. к. эти столбцы по построению являются решениями системы <script type="math/tex" id="MathJax-Element-166">AX = B</script> и их количество равно <script type="math/tex" id="MathJax-Element-167">k = n - r</script>, остается доказать их линейную независимость.</p>
+
+<p>Допустим, существуют <script type="math/tex" id="MathJax-Element-168">\alpha_1, \dots, \alpha_k такие, что</script></p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-169">
+\alpha_1 x^{(1)} + \dots + \alpha_k x^{(k)} = 0.
+</script></p>
+
+<p>Но тогда <script type="math/tex" id="MathJax-Element-170">r+1</script>-й элемент левого вектора равен <script type="math/tex" id="MathJax-Element-171">\alpha_1 1 + \alpha_2 0 + \dots + \alpha_k 0 = 0</script>, из чего следует <script type="math/tex" id="MathJax-Element-172">\alpha_1 = 0</script>. Повторяя рассуждения для следующих элементов, приходим к выводу, что <script type="math/tex" id="MathJax-Element-173">\alpha_1 = \dots = \alpha_k = 0</script>. Следовательно, система линейно независима. <script type="math/tex" id="MathJax-Element-174">\blacksquare</script></p>
+
+
+
+<h4 id="12-доказать-теорему-о-структуре-общего-решения-однородной-слау-то-есть-о-том-что-произвольное-решение-однородной-слау-может-быть-представлено-в-виде-комбинации-фср">12. Доказать теорему о структуре общего решения однородной СЛАУ (то есть, о том, что произвольное решение однородной СЛАУ может быть представлено в виде комбинации ФСР).</h4>
+
+<p>Если <script type="math/tex" id="MathJax-Element-175">x^{(1)}, \dots, x^{(k)}</script> — произвольная ФСР системы <script type="math/tex" id="MathJax-Element-176">AX = 0</script>, то любое ее решение <script type="math/tex" id="MathJax-Element-177">x</script> можно представить в виде</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-178">
+x = c_1 x^{(1)} + \dots + c_k x^{(k)}.
+</script></p>
+
+<p>И наоборот, любая линейная комбинация векторов ФСР будет решением этой СЛАУ.</p>
+
+<p><script type="math/tex" id="MathJax-Element-179">\square</script> <script type="math/tex" id="MathJax-Element-180">1)</script> Что линейная комбинация векторов ФСР является решением, следует из того, что векторы ФСР является решениями и линейная комбинация решений является решением (См. вопрос 8).</p>
+
+<p><script type="math/tex" id="MathJax-Element-181">2)</script> Допустим <script type="math/tex" id="MathJax-Element-182">x</script> — решение СЛАУ.</p>
+
+<p>Предположим, что базисный минор в однородной СЛАУ находится в левом-верхнем углу. Тогда запишем систему как</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-183">
+\begin{cases}
+a_{11} x_1 + \dots + a_{1r} x_r = - a_{1(r+1)} x_{r+1} + \dots + a_{1n} x_n \\
+\vdots \\
+a_{r1} x_1 + \dots + a_{rr} x_r = - a_{r(r+1)} x_{r+1} + \dots + a_{rn} x_n \\
+\end{cases}
+</script></p>
+
+<p>и решим ее относительно базсиных переменных:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-184">
+x_1 = \overline{a}_{1(r+1)} x_{r+1} + \dots + \overline{a}_{1n} x_n, \\
+\vdots \\
+x_r = \overline{a}_{r(r+1)} x_{r+1} + \dots + \overline{a}_{rn} x_n,
+</script></p>
+
+<p>где <script type="math/tex" id="MathJax-Element-185">\overline{a}_{ij}</script> — какие-то коэффициенты в каноническом виде матрицы про решении ее методом Гаусса.</p>
+
+<p>Составим матрицу из столбцов ФСР и припишем к ним столбец <script type="math/tex" id="MathJax-Element-186">x</script>:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-187">
+H = \begin{pmatrix}
+\phi_{11} & \dots & \phi_{1k} & x_1 \\
+\phi_{21} & \dots & \phi_{2k} & x_2 \\
+\vdots & \ddots & \vdots & \vdots \\
+\phi_{r1} & \dots & \phi_{rk} & x_r \\
+\vdots & \ddots & \vdots & \vdots \\
+\phi_{n1} & \dots & \phi_{nk} & x_n \\
+\end{pmatrix}.
+</script></p>
+
+<p>Найдем ранг этой матрицы. Т. к. первые <script type="math/tex" id="MathJax-Element-188">r</script> столбцов линейно независимы, <script type="math/tex" id="MathJax-Element-189">\text{rank} H \ge n - r</script>.</p>
+
+<p>Но так как все столбцы являются решениями системы и удовлетворяют полученному выше условию, каждая из первых <script type="math/tex" id="MathJax-Element-190">r</script> <em>строк</em> является линейной комбинацией последних <script type="math/tex" id="MathJax-Element-191">n - r</script> строк. Так что <script type="math/tex" id="MathJax-Element-192">\text{rank} H \le n - r</script>.</p>
+
+<p>Следовательно, ранг матрицы равен <script type="math/tex" id="MathJax-Element-193">n - r = k</script> и комбинация ее <script type="math/tex" id="MathJax-Element-194">k + 1</script> столбцов линейно зависима. Так как ее столбцы без <script type="math/tex" id="MathJax-Element-195">x</script> линейно независимы, а с <script type="math/tex" id="MathJax-Element-196">x</script> — линейно зависимы, то <script type="math/tex" id="MathJax-Element-197">x</script> является их линейной комбинацией. <script type="math/tex" id="MathJax-Element-198">\blacksquare</script></p>
+
+
+
+<h4 id="13-сформулировать-теорему-о-структуре-общего-решения-неоднородной-слау-и-доказать-ее">13. Сформулировать теорему о структуре общего решения неоднородной СЛАУ и доказать ее.</h4>
+
+<p>Если <script type="math/tex" id="MathJax-Element-199">x</script> — решение системы <script type="math/tex" id="MathJax-Element-200">AX = B</script>, а <script type="math/tex" id="MathJax-Element-201">\phi^{(1)}, \dots, \phi^{(k)}</script> — произвольная ФСР системы <script type="math/tex" id="MathJax-Element-202">AX = 0</script>, то <script type="math/tex" id="MathJax-Element-203">x</script> представляется в виде:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-204">
+x = x^0 + c_1 \phi^{(1)} + \dots + c_k \phi^{(k)},
+</script></p>
+
+<p>где <script type="math/tex" id="MathJax-Element-205">x^0</script> — частное решение <script type="math/tex" id="MathJax-Element-206">AX = B</script>.</p>
+
+<p><script type="math/tex" id="MathJax-Element-207">\square</script> Т. к. <script type="math/tex" id="MathJax-Element-208">x</script>, <script type="math/tex" id="MathJax-Element-209">x^0</script> — решения неоднородной СЛАУ, то <script type="math/tex" id="MathJax-Element-210">x - x^0</script> — решение однородной:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-211">
+A(x - x^0) = Ax - Ax^0 = B - B = 0.
+</script></p>
+
+<p>А любое решение однородной СЛАУ представляется в виде линейной комбинации векторов ФСР. Следовательно, </p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-212">
+x - x^0 = c_1 \phi^{(1)} + \dots + c_k \phi^{(k)}. \blacksquare
+</script></p>
+
+
+
+<h4 id="14-выписать-формулу-для-вычисления-векторного-произведения-в-координатах-заданных-в-ортонормированном-базисе-и-доказать-ее">14. Выписать формулу для вычисления векторного произведения в координатах, заданных в ортонормированном базисе, и доказать ее.</h4>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-213">
+[a,b] = \begin{vmatrix}
+\textbf{i} & \textbf{j} & \textbf{k} \\
+a_x & a_y & a_z \\
+b_x & b_y & b_z
+\end{vmatrix}.
+</script></p>
+
+<p><script type="math/tex" id="MathJax-Element-214">\square</script> Докажем, что такое векторное произведение подходит под определение.</p>
+
+<p><script type="math/tex" id="MathJax-Element-215">1)</script> Скалярное произведение <script type="math/tex" id="MathJax-Element-216">([a, b], a)</script> равно нулю, т. к. определитель матрицы, у которой два столбца линейно зависимы, равен нулю:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-217">
+([a, b], a) = a_x \begin{vmatrix}
+a_y & a_z \\
+b_y & b_z
+\end{vmatrix} - a_y \begin{vmatrix}
+a_x & a_z \\
+b_x & b_z
+\end{vmatrix} + a_z \begin{vmatrix}
+a_x & a_y \\
+b_x & b_y
+\end{vmatrix} = \begin{vmatrix}
+a_x & a_y & a_z \\
+a_x & a_y & a_z \\
+b_x & b_y & b_z
+\end{vmatrix}.
+</script></p>
+
+<p>Аналогично <script type="math/tex" id="MathJax-Element-218">([a, b], b) = 0</script>.</p>
+
+<p>Следовательно, предложенное произведение ортогонально каждому из векторов <script type="math/tex" id="MathJax-Element-219">a, b</script>.</p>
+
+<p><script type="math/tex" id="MathJax-Element-220">2)</script> Докажем, что <script type="math/tex" id="MathJax-Element-221">|[a,b]| = |a| |b| \sin \phi</script>.</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-222">
+\cos\phi = \frac{(a,b)}{|a| |b|} \\
+\sin^2 \phi = 1 - \cos^2\phi = \frac{|a|^2 |b|^2 - (a, b)^2}{|a|^2 |b|^2} \\
+\sin \phi = \frac{\sqrt{|a|^2 + |b|^2 - (a, b)^2}}{|a| |b|},
+</script></p>
+
+<p>откуда</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-223">
+|a| |b| \sin \phi = \sqrt{|a|^2 + |b|^2 - (a, b)^2} = \\
+a_y^2 b_x^2 - 2 a_x a_y b_x b_y + a_x^2 b_y^2 + a_z^2 b_x^2 - 2 a_x a_z b_x b_z + a_x^2 b_z^2 + \\
++ a_z^2 b_y^2 - 2 a_y a_y b_y b_z + a_y^2 b_z^2.
+</script></p>
+
+<p>А модуль <script type="math/tex" id="MathJax-Element-224">[a,b]</script></p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-225">
+|[a,b]| = |(\begin{vmatrix}
+a_y & a_z \\
+b_y & b_z
+\end{vmatrix}, \begin{vmatrix}
+a_x & a_z \\
+b_x & b_z
+\end{vmatrix}, \begin{vmatrix}
+a_x & a_y \\
+b_x & b_y
+\end{vmatrix})| = \\
+= |(a_y b_z - a_z b_y, a_z b_x - a_x b_z, a_x b_y - a_y b_x)|
+</script></p>
+
+<p>равен тому же самому. Вот так вот!</p>
+
+<p><script type="math/tex" id="MathJax-Element-226">3)</script> По тому же самому свойству определителя</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-227">
+[a, a] = \begin{vmatrix}
+\textbf{i} & \textbf{j} & \textbf{k} \\
+a_x & a_y & a_z \\
+a_x & a_y & a_z \\
+\end{vmatrix} = 0. \blacksquare
+</script></p>
+
+
+
+<h4 id="15-доказать-теорему-о-том-что-любое-линейное-уравнение-на-координаты-точки-в-трехмерном-пространстве-задает-плоскость-и-что-любая-плоскость-определяется-линейным-уравнением">15. Доказать теорему о том, что любое линейное уравнение на координаты точки в трехмерном пространстве задает плоскость и что любая плоскость определяется линейным уравнением.</h4>
+
+<p>Любая плоскость задается уравнением первой степени на координаты точки и любое такое уравнение задает плоскость.</p>
+
+<p><script type="math/tex" id="MathJax-Element-228">\square</script> <script type="math/tex" id="MathJax-Element-229">1)</script> Пусть плоскость задана точкой <script type="math/tex" id="MathJax-Element-230">M_0(x_0,y_0,z_0)</script>, лежащей на ней, и вектором <script type="math/tex" id="MathJax-Element-231">\vec{n}(A, B, C)</script>, перпендикулярным ей. Тогда для точки <script type="math/tex" id="MathJax-Element-232">M(x,y,z)</script>, лежащей на плоскости, вектор <script type="math/tex" id="MathJax-Element-233">\vec{M_0 M}</script> будет перпендикулярен <script type="math/tex" id="MathJax-Element-234">\vec{n}</script>:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-235">
+A(x - x_0) + B(y - y_0) + C(z - z_0) = 0.
+</script></p>
+
+<p>Раскрывая скобки получаем уравнение</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-236">
+Ax + By + Cz + D = 0,
+</script></p>
+
+<p>где <script type="math/tex" id="MathJax-Element-237">D = - A x_0 - B y_0 - C z_0</script> и хотя бы один из коэффициентов <script type="math/tex" id="MathJax-Element-238">A, B, C</script> ненулевой.</p>
+
+<p>Таким образом, плоскость задается полученным уравнением.</p>
+
+<p><script type="math/tex" id="MathJax-Element-239">2)</script> То же самое в обратном порядке. Выбираем любую точку <script type="math/tex" id="MathJax-Element-240">M_0</script> на плоскости и вектор <script type="math/tex" id="MathJax-Element-241">\vec{n} (A, B, C)</script> и видим, что это уравнение эквивалентно вышеприведенному условию принадлежности плоскости. <script type="math/tex" id="MathJax-Element-242">\blacksquare</script></p>
+
+
+
+<h4 id="16-выписать-формулу-для-вычисления-расстояния-от-точки-до-плоскости-и-привести-ее-вывод">16. Выписать формулу для вычисления расстояния от точки до плоскости и привести ее вывод.</h4>
+
+<p>Если плоскости <script type="math/tex" id="MathJax-Element-243">L</script> задана уравнением <script type="math/tex" id="MathJax-Element-244">Ax + By + Cz + D = 0</script>, то расстояние от точки <script type="math/tex" id="MathJax-Element-245">M</script> до <script type="math/tex" id="MathJax-Element-246">L</script> равно</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-247">
+\rho(M, L) = \frac{|A M_x + B M_y + C M_z + D|}{\sqrt{A^2 + B^2 + C^2}}.
+</script></p>
+
+<p><script type="math/tex" id="MathJax-Element-248">\square</script> Рассмотрим произвольную точку <script type="math/tex" id="MathJax-Element-249">M^0</script>, лежащую на данной плоскости. Тогда расстояние от <script type="math/tex" id="MathJax-Element-250">M</script> до плоскости равно длине ортогональной проекции вектора <script type="math/tex" id="MathJax-Element-251">\vec{MM^0}</script> на вектор нормали этой плоскости</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-252">
+\rho(M, L) =  \frac{(\vec{MM^0}, \vec{n})}{|\vec{n}|}.
+</script></p>
+
+<p>Т. к. <script type="math/tex" id="MathJax-Element-253">\vec{n} = (A, B, C)</script>, получаем</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-254">
+\rho(M, L) =  \frac{(M_x - M^0_x) + (M_y - M^0_y) B + (M_z - M^0_z)C }{\sqrt{A^2 + B^2 + C^2}} = \\
+= \frac{A M_x + B M_y + C M_z - A M^0_x - B M^0_y - C M^0_z}{\sqrt{A^2 + B^2 + C^2}}.
+</script></p>
+
+<p>Так как <script type="math/tex" id="MathJax-Element-255">M^0</script> лежит на плоскости, ее координаты удовлетовряют уравнению плоскости, и</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-256">
+A M^0_x + B M^0_y + C M^0_z = -D.
+</script></p>
+
+<p>Получаем </p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-257">
+\rho(M, L) = \frac{A M_x + B M_y + C M_z + D}{\sqrt{A^2 + B^2 + C^2}}. \blacksquare
+</script></p>
+
+
+
+<h4 id="17-выписать-формулу-для-вычисления-расстояния-от-точки-до-прямой-и-доказать-ее">17. Выписать формулу для вычисления расстояния от точки до прямой и доказать ее.</h4>
+
+<p>Пусть прямая <script type="math/tex" id="MathJax-Element-258">L</script> задана своим каноническим уравнением <script type="math/tex" id="MathJax-Element-259">\frac{x - x_0}{u} = \frac{y - y_0}{v} = \frac{z - z_0}{w}</script>. Тогда расстояние от точки <script type="math/tex" id="MathJax-Element-260">M</script> до прямой <script type="math/tex" id="MathJax-Element-261">L</script> равно</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-262">
+\rho(M, L) = \frac{|[\vec{M M_0}, \vec{p}]|}{|\vec{p}|},
+</script></p>
+
+<p>где <script type="math/tex" id="MathJax-Element-263">M_0</script> — произвольная точка на прямой (<script type="math/tex" id="MathJax-Element-264">(x_0, y_0, z_0)</script> в каноническом уравнении), <script type="math/tex" id="MathJax-Element-265">\vec{p}</script> — направляющий вектор прямой (<script type="math/tex" id="MathJax-Element-266">(u, v, w)</script> в каноническом уравнении).</p>
+
+<p><script type="math/tex" id="MathJax-Element-267">\blacksquare</script> Рассмотрим точку на прямой <script type="math/tex" id="MathJax-Element-268">M_0</script>. Длина векторного произведения вектора <script type="math/tex" id="MathJax-Element-269">\vec{M M_0}</script> на направляющий вектор будет следующей:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-270">
+|[\vec{M M_0}, \vec{p}]| = |\vec{M M_0}| |\vec{p}| \sin \phi,
+</script></p>
+
+<p>где <script type="math/tex" id="MathJax-Element-271">\phi</script> — угол между этими векторами.</p>
+
+<p>Опустим перпендикуляр <script type="math/tex" id="MathJax-Element-272">M M_2</script> из точки <script type="math/tex" id="MathJax-Element-273">M</script> на прямую. Длина вектора <script type="math/tex" id="MathJax-Element-274">\vec{M M_2}</script> и будет расстоянием от точки <script type="math/tex" id="MathJax-Element-275">M</script> до прямой. Теперь рассмотрим прямоугольный треугольник <script type="math/tex" id="MathJax-Element-276">\triangle M M_1 M_2</script>. Так как <script type="math/tex" id="MathJax-Element-277">M M_1</script> — гипотенуза, а <script type="math/tex" id="MathJax-Element-278">M M_2</script> — противолежащий ей катет, то</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-279">
+|M M_2| = |M M_1| \sin \phi.
+</script></p>
+
+<p>Следовательно,</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-280">
+\rho(M, L) = |M M_2| = \frac{|[\vec{M M_0}, \vec{p}]|}{|\vec{p}|}. \blacksquare
+</script></p>
+
+
+
+<h4 id="18-выписать-формулу-для-вычисления-расстояния-между-двумя-скрещивающимися-прямыми-и-доказать-ее">18. Выписать формулу для вычисления расстояния между двумя скрещивающимися прямыми и доказать ее.</h4>
+
+<p>Если скрещивающиеся прямые <script type="math/tex" id="MathJax-Element-281">L_1</script> и <script type="math/tex" id="MathJax-Element-282">L_2</script> заданы своими каноническими уравнениями <script type="math/tex" id="MathJax-Element-283">\frac{x - x_0}{p} = \frac{y - y_0}{e} = \frac{z - z_0}{t}</script> и <script type="math/tex" id="MathJax-Element-284">\frac{x - x_1}{u} = \frac{y - y_1}{k} = \frac{z - z_1}{h}</script>, то расстояние между ними равно</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-285">
+\rho(L_1, L_2) = \frac{(\vec{M_0 M_1}, [\vec{p_1}, \vec{p_2}])}{[\vec{p_1}, \vec{p_2}]},
+</script></p>
+
+<p>где <script type="math/tex" id="MathJax-Element-286">\vec{p_1} = (p, e, t)</script>, <script type="math/tex" id="MathJax-Element-287">\vec{p_2} = (u, k, h)</script> — направляющие векторы прямых, <script type="math/tex" id="MathJax-Element-288">M_0 = (x_0, y_0, z_0)</script>, <script type="math/tex" id="MathJax-Element-289">M_1 = (x_1, y_1, z_1)</script> — точки на прямых.</p>
+
+<p><script type="math/tex" id="MathJax-Element-290">\square</script> Расстояние между скрещивающимися прямыми <script type="math/tex" id="MathJax-Element-291">L_1</script> и <script type="math/tex" id="MathJax-Element-292">L_2</script> — это расстояние от прямой <script type="math/tex" id="MathJax-Element-293">L_1</script> до плоскости, содержащей прямую <script type="math/tex" id="MathJax-Element-294">L_2</script>, параллельной обеим прямым. Вектор нормали этой плоскости будет таким:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-295">
+\vec{n} = [\vec{p_1}, \vec{p_2}].
+</script></p>
+
+<p>Т. к. расстояние от прямой до параллельной ей плоскости — это расстояние от любой точки на этой прямой до этой плоскости, вышеобозначенная точка <script type="math/tex" id="MathJax-Element-296">M_0</script> лежит на прямой, а <script type="math/tex" id="MathJax-Element-297">M_1</script> на плоскости, то расстоянием будет длина ортогональной проекции вектора <script type="math/tex" id="MathJax-Element-298">\vec{M_0 M_1}</script> на вектор нормали этой плоскости. Получаем</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-299">
+\frac{(\vec{M_0 M_1}, [\vec{p_1}, \vec{p_2}])}{[\vec{p_1}, \vec{p_2}]}. \blacksquare
+</script></p>
+
+
+
+<h4 id="19-выписать-формулу-муавра-и-доказать-ее">19. Выписать формулу Муавра и доказать ее.</h4>
+
+<p>Для комплексного числа <script type="math/tex" id="MathJax-Element-300">z = |z| (\cos \phi + i \sin \phi)</script></p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-301">
+\sqrt[n]{z} = \sqrt[n]{|z|}(\cos \frac{\phi + 2\pi k}{n} + i \sin \frac{\phi + 2\pi k}{n}), k = \overline{1, n-1}.
+</script></p>
+
+<p><script type="math/tex" id="MathJax-Element-302">\square</script> Пусть дано число <script type="math/tex" id="MathJax-Element-303">z = r(\cos \phi + i \sin \phi)</script>, а мы хотим найти число <script type="math/tex" id="MathJax-Element-304">z' = r'(\cos \phi' + i \sin \phi')</script> такое, что <script type="math/tex" id="MathJax-Element-305">(z')^n = z</script>.</p>
+
+<p>Так как при умножении комплексных чисел модули умножаются, а аргументы складываются, получаем равенство</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-306">
+(z')^n = (r')^n(\cos (\phi' n ) + i \sin (\phi' n )) = z = r(\cos \phi + i \sin \phi).
+</script></p>
+
+<p>Решая уравнение</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-307">
+(r')^n = r
+</script></p>
+
+<p>получаем</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-308">
+r' = \sqrt[n]{r}.
+</script></p>
+
+<p>Решая систему уравнений</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-309">
+\begin{cases}
+\cos (\phi' n) = \cos \phi \\
+\sin (\phi' n) = \sin \phi 
+\end{cases}
+</script></p>
+
+<p>там короче по формулам расписываем:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-310">
+\cos x - \cos y = -2 \sin \frac{x + y}{2} \sin \frac{x - y}{2} \\
+\sin x - \sin y = 2 \sin \frac{x - y}{2} \cos \frac{x + y}{2}
+</script></p>
+
+<p>и всё точь-в-точь получается! Мамой клянусь! <script type="math/tex" id="MathJax-Element-311">\blacksquare</script></p>
+
+
+
+<h4 id="20-доказать-три-свойства-изоморфизма-групп-1-нейтральный-элемент-переходит-в-нейтральный-2-обратный-элемент-переходит-в-обратный-3-обратное-отображение-тоже-является-изоморфизмом">20. Доказать три свойства изоморфизма групп: 1) нейтральный элемент переходит в нейтральный, 2) обратный элемент переходит в обратный, 3) обратное отображение тоже является изоморфизмом.</h4>
+
+<p><script type="math/tex" id="MathJax-Element-312">\square</script> <script type="math/tex" id="MathJax-Element-313">1)</script> Докажем, что <script type="math/tex" id="MathJax-Element-314">f(e) = e</script>.</p>
+
+<p>Пусть <script type="math/tex" id="MathJax-Element-315">f(e) = h \in H</script>. Тогда</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-316">
+h^2 = f(e)^2 = f(e^2) = f(e) = h,
+</script></p>
+
+<p>откуда <script type="math/tex" id="MathJax-Element-317">h = e</script>.</p>
+
+<p><script type="math/tex" id="MathJax-Element-318">2)</script> <script type="math/tex" id="MathJax-Element-319">f(a^{-1}) = f(a)^{-1}</script>, так как</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-320">
+f(a) f(a^{-1}) = f(aa^{-1}) = f(e) = e.
+</script></p>
+
+<p><script type="math/tex" id="MathJax-Element-321">3)</script> Если <script type="math/tex" id="MathJax-Element-322">f</script> — биекция, то и <script type="math/tex" id="MathJax-Element-323">f^{-1}</script> — биекция. Покажем, что если <script type="math/tex" id="MathJax-Element-324">f</script> сохраняет операцию, то и <script type="math/tex" id="MathJax-Element-325">f^{-1}</script> будет сохранять.</p>
+
+<p>Подставим в</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-326">
+f^{-1}(a)f^{-1}(b) = f^{-1}(ab)
+</script></p>
+
+<p><script type="math/tex" id="MathJax-Element-327">a = f(u)</script>, <script type="math/tex" id="MathJax-Element-328">b = f(v)</script>. Получим</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-329">
+f^{-1}(f(u))f^{-1}(f(v)) = f^{-1}(f(u)f(v)) \\
+f^{-1}(f(u))f^{-1}(f(v)) = f^{-1}(f(uv)) \\
+uv = uv. \blacksquare
+</script></p>
+
+<p>(Это я сам придумал и че-то неубедительно — прим. г.)</p>
+
+
+
+<h4 id="21-сформулировать-и-доказать-теорему-кэли">21. Сформулировать и доказать теорему Кэли.</h4>
+
+<p>Любая конечная группа изоморфна подгруппе группы подстановок.</p>
+
+<p><script type="math/tex" id="MathJax-Element-330">\square</script> Пусть <script type="math/tex" id="MathJax-Element-331">(G, *)</script> — группа. Рассмотрим элемент <script type="math/tex" id="MathJax-Element-332">g \in F</script> и функцию <script type="math/tex" id="MathJax-Element-333">f_g: G \rightarrow G, f_g(x) = g * x</script>. <script type="math/tex" id="MathJax-Element-334">f_g</script> — биекция, т.к.</p>
+
+<ul>
+<li><script type="math/tex" id="MathJax-Element-335">f_g</script> инъективно, т. к. <script type="math/tex" id="MathJax-Element-336">x \neq y \Rightarrow g * x \neq g * y</script> (иначе в группе не было бы обратного элемента);</li>
+<li><script type="math/tex" id="MathJax-Element-337">f_g</script> суръективно, т. к. множество <script type="math/tex" id="MathJax-Element-338">G</script> конечно.</li>
+</ul>
+
+<p>Пусть <script type="math/tex" id="MathJax-Element-339">\circ</script> — композиция подстановок. Если <script type="math/tex" id="MathJax-Element-340">f_g</script> — подстановка, то <script type="math/tex" id="MathJax-Element-341">f_{g^{-1}}</script> — обратная ей, т. к.</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-342">
+(f_{g^{-1}} \circ f_g) = g^{-1} * g * x = e * x = x.
+</script></p>
+
+<p>Аналогично, <script type="math/tex" id="MathJax-Element-343">f_e</script> — тождественная подстановка.</p>
+
+<p>Кроме того, все множество функций <script type="math/tex" id="MathJax-Element-344">K = \{f_g | g \in G\}</script> замкнуто относительно композиции:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-345">
+f_g(f_h(x)) = g * h * x = f_{gh} (x),
+</script></p>
+
+<p>где <script type="math/tex" id="MathJax-Element-346">gh \in G</script>, что значит, что <script type="math/tex" id="MathJax-Element-347">f_{gh} \in K</script>.</p>
+
+<p>Таким образом, <script type="math/tex" id="MathJax-Element-348">K</script> — подгруппа симметрической группы. Докажем, что <script type="math/tex" id="MathJax-Element-349">G</script> изоморфно <script type="math/tex" id="MathJax-Element-350">K</script>.</p>
+
+<p>Рассмотрим <script type="math/tex" id="MathJax-Element-351">T: G \rightarrow K, T(x) = f_x</script>. <script type="math/tex" id="MathJax-Element-352">T</script> — гомоморфизм, т. к сохраняет операцию: <script type="math/tex" id="MathJax-Element-353">T(g) \circ T(h) = f_g \circ f_h = f_{g * h} = T(g * h)</script>. <script type="math/tex" id="MathJax-Element-354">T</script> — биекция, так как:</p>
+
+<ul>
+<li>инъективно: <script type="math/tex" id="MathJax-Element-355">f_g(x) = f_{g'}(x) \Rightarrow g = f_g(x) * x^{-1} = f_{g'}(x) * x^{-1} = g'</script>;</li>
+<li>суръективно (следует из определения множества <script type="math/tex" id="MathJax-Element-356">K</script>).</li>
+</ul>
+
+<p>Таким образом, <script type="math/tex" id="MathJax-Element-357">T</script> — изоморфизм, а значит, <script type="math/tex" id="MathJax-Element-358">G</script> изоморфно подгруппе симметрической группы <script type="math/tex" id="MathJax-Element-359">K</script>. <script type="math/tex" id="MathJax-Element-360">\blacksquare</script></p>
+
+
+
+<h4 id="22-сформулировать-и-доказать-теорему-лагранжа">22. Сформулировать и доказать теорему Лагранжа.</h4>
+
+<p>Если <script type="math/tex" id="MathJax-Element-361">G</script> — конечная группа, <script type="math/tex" id="MathJax-Element-362">H</script> — ее подгруппа, то</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-363">
+|G| = |G : H| |H|.
+</script></p>
+
+<p><script type="math/tex" id="MathJax-Element-364">\square</script> Все смежные классы <script type="math/tex" id="MathJax-Element-365">gH</script> имеют одинаковое число элементов, равное <script type="math/tex" id="MathJax-Element-366">|H|</script>. Поскольку они разбивают группу <script type="math/tex" id="MathJax-Element-367">G</script> на классы эквивалентности, то имеем что имеем. <script type="math/tex" id="MathJax-Element-368">\blacksquare</script></p>
+
+
+
+<h4 id="23-сформулировать-и-доказать-теорему-о-гомоморфизме-групп">23. Сформулировать и доказать теорему о гомоморфизме групп.</h4>
+
+<p>Пусть <script type="math/tex" id="MathJax-Element-369">f: G \rightarrow H</script> — гомоморфизм групп. Тогда</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-370">
+\text{Im} f \simeq G/\text{Ker}f.
+</script></p>
+
+<p><script type="math/tex" id="MathJax-Element-371">\square</script> <script type="math/tex" id="MathJax-Element-372">f(g_1) = f(g_2) \Leftrightarrow g_1 \equiv g_2 (\text{mod} \;\text{Ker} f)</script>. В частности, <script type="math/tex" id="MathJax-Element-373">f</script> инъективно тогда и только тогда, когда <script type="math/tex" id="MathJax-Element-374">\text{Ker} f = \{e\}</script>. Действительно,</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-375">
+f(g_1) = f(g_2) \Leftrightarrow f(g_1^{-1} g_2) = e \Leftrightarrow g_1^{-1} g_2 \in \text{Ker} f \Leftrightarrow g_1 \equiv g_2 (\text{mod} \; \text{Ker} f).
+</script></p>
+
+<p>Таким образом, гомоморфизм <script type="math/tex" id="MathJax-Element-376">f: G \rightarrow H</script> является изоморфизмом тогда и только тогда, когда <script type="math/tex" id="MathJax-Element-377">\text{Im} f = H</script> и <script type="math/tex" id="MathJax-Element-378">\text{Ker} f = \{e\}</script>.</p>
+
+<p>Следовательно, все элементы смежного класса <script type="math/tex" id="MathJax-Element-379">g \text{Ker} f</script>, и только они, переходят в элементы <script type="math/tex" id="MathJax-Element-380">h = f(g) \in \text{Im} f</script>. Тем самым показано, что отображение <script type="math/tex" id="MathJax-Element-381">\phi</script>, о котором идет речь в теореме, определено и является биекцией. Осталось проверить, что <script type="math/tex" id="MathJax-Element-382">\phi</script> — гомоморфизм.</p>
+
+<p>Пусть <script type="math/tex" id="MathJax-Element-383">g_1, g_2 \in G, f(g_1) =  h_1, f(g_2) = h_2</script>. Тогда <script type="math/tex" id="MathJax-Element-384">f(g_1 g_2) = h_1 h_2</script> и</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-385">
+\phi (h_1 h_2) = g_1 g_2 \text{Ker} f = (g_1 \text{Ker} f) (g_2 \text{Ker} f) = \phi(h_1) \phi(h_2). \blacksquare
+</script></p>
+
+
+
+<h4 id="24-выведите-формулу-для-описания-изменения-координат-вектора-при-изменении-базиса">24. Выведите формулу для описания изменения координат вектора при изменении базиса.</h4>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-386">
+x^{e'} = T^{-1}_{e \rightarrow e'} x^e.
+</script></p>
+
+<p><script type="math/tex" id="MathJax-Element-387">\square</script> Допустим, <script type="math/tex" id="MathJax-Element-388">e = (e_1, \dots, e_n)</script> — старый базис, <script type="math/tex" id="MathJax-Element-389">e' = (e'_1, \dots, e'_n)</script> и</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-390">
+e'_1 = a_{11} e_1 + \dots + a_{n1} e_n \\
+\vdots \\
+e'_n = a_{1n} e_1 + \dots + a_{nn} e_n.
+</script></p>
+
+<p>Тогда вектор <script type="math/tex" id="MathJax-Element-391">x</script>, имеющий в базисе <script type="math/tex" id="MathJax-Element-392">e</script> координаты <script type="math/tex" id="MathJax-Element-393">x^e = (x_1, \dots, x_n)^T</script>, будет иметь в базисе <script type="math/tex" id="MathJax-Element-394">e'</script> координаты <script type="math/tex" id="MathJax-Element-395">x^{e'} = (x'_1, \dots, x'_n)^T</script>:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-396">
+x = x'_1 e'_1 + \dots + x'_n e'_n = x'_1 (a_{11} e_1 + \dots + a_{n1} e_n) + \\ + \dots + x'_n (a_{1n} e_1 + \dots + a_{nn} e_n) = \\
+= (x'_1 a_{11} + x'_2 a_{12} + \dots + x'_n a_{1n}) e_1 + \dots = \\
+= x_1 e_1 + \dots + x_n e_n.
+</script></p>
+
+<p>Тогда</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-397">
+x_1 = x'_1 a_{11} + x'_2 a_{12} + \dots + x'_n a_{1n} \\
+\vdots
+</script></p>
+
+<p>и</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-398">
+\begin{pmatrix}
+x_1 \\
+\vdots \\
+x_n
+\end{pmatrix} = T_{e \rightarrow e'} \begin{pmatrix}
+x'_1 \\
+\vdots \\
+x'_n
+\end{pmatrix},
+</script></p>
+
+<p>где <script type="math/tex" id="MathJax-Element-399">T_{e \rightarrow e'}</script> — матрица перехода от базиса <script type="math/tex" id="MathJax-Element-400">e</script> к <script type="math/tex" id="MathJax-Element-401">e'</script>:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-402">
+T_{e \rightarrow e'} = \begin{pmatrix}
+a_{11} & \dots & a_{1n} \\
+\vdots & \ddots & \vdots \\
+a_{n1} & \dots & a_{nn} \\
+\end{pmatrix}.
+</script></p>
+
+<p>откуда</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-403">
+\begin{pmatrix}
+x'_1 \\
+\vdots \\
+x'_n
+\end{pmatrix} = T^{-1}_{e \rightarrow e'}
+\begin{pmatrix}
+x_1 \\
+\vdots \\
+x_n
+\end{pmatrix}. \blacksquare
+</script></p>
+
+
+
+<h4 id="25-сформулируйте-и-докажите-теорему-о-том-что-действие-линейного-оператора-полностью-определяется-матрицей-линейного-оператора">25. Сформулируйте и докажите теорему о том, что действие линейного оператора полностью определяется матрицей линейного оператора.</h4>
+
+<p>Действие оператора полностью определено, если известны образы векторов базиса:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-404">
+A x = \begin{pmatrix}
+a_{11} & \dots & a_{1n} \\
+\vdots & \ddots & \vdots \\
+a_{n1} & \dots & a_{nn} 
+\end{pmatrix} x,
+</script></p>
+
+<p>где <script type="math/tex" id="MathJax-Element-405">(a_{11}, \dots, a_{n1})^T, \dots, (a_{1n}, \dots, a_{nn})^T</script> — образы векторов базиса.</p>
+
+<p><script type="math/tex" id="MathJax-Element-406">\square</script> По свойству линейности линейного оператора:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-407">
+Ax = A(x_1 e_1 + \dots + x_n e_n) = x_1 A e_1 + \dots + x_n A e_n = \\
+= (A e_1, \dots, A e_n) \begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix}.
+</script></p>
+
+<p>Ну и слева которая - это и есть матрица оператора. <script type="math/tex" id="MathJax-Element-408">\blacksquare</script></p>
+
+
+
+<h4 id="26-докажите-утверждение-о-формуле-для-преобразования-матрицы-оператора-при-замене-базиса">26. Докажите утверждение о формуле для преобразования матрицы оператора при замене базиса.</h4>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-409">
+A_{e'} = T^{-1}_{e \rightarrow e'} A_e T_{e \rightarrow e'}.
+</script></p>
+
+<p><script type="math/tex" id="MathJax-Element-410">\square</script></p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-411">
+A_{e'} x_{e'} = T^{-1}_{e \rightarrow e'} A_e x^e = T^{-1}_{e \rightarrow e'} A_e T^{-1}_{e \rightarrow e'} x^{e'}. \blacksquare
+</script></p>
+
+
+
+<h4 id="27-сформулируйте-и-докажите-утверждение-о-связи-характеристического-уравнения-и-спектра-оператора">27. Сформулируйте и докажите утверждение о связи характеристического уравнения и спектра оператора.</h4>
+
+<p>Для того, чтобы число являлось собственным значением линейного оператор, необходимо и достаточно, чтобы оно было корнем характеристического уравнения <script type="math/tex" id="MathJax-Element-412">\det (\lambda E - A) = 0</script>.</p>
+
+<p><script type="math/tex" id="MathJax-Element-413">\square</script> <script type="math/tex" id="MathJax-Element-414">1)</script> Пусть <script type="math/tex" id="MathJax-Element-415">\lambda</script> — собственное значение. Значит, существует вектор <script type="math/tex" id="MathJax-Element-416">x</script> такой, что</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-417">
+Ax = \lambda x.
+</script></p>
+
+<p>Тогда</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-418">
+Ax = \lambda E x,
+</script></p>
+
+<p>где <script type="math/tex" id="MathJax-Element-419">E</script> — тождественный оператор. Это равносильно</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-420">
+(A - \lambda E) x = 0,
+</script></p>
+
+<p>что представляет собой запись однородной СЛАУ с матрицей <script type="math/tex" id="MathJax-Element-421">A - \lambda E</script> порядка <script type="math/tex" id="MathJax-Element-422">n</script>. По предположению, эта система имеет ненулевое решение (собственный вектор <script type="math/tex" id="MathJax-Element-423">x</script>), а значит, <script type="math/tex" id="MathJax-Element-424">\det (A - \lambda E) = 0</script>.</p>
+
+<p><script type="math/tex" id="MathJax-Element-425">2)</script> То же самое в обратном порядке. <script type="math/tex" id="MathJax-Element-426">\blacksquare</script></p>
+
+
+
+<h4 id="28-каким-свойством-обладают-собственные-векторы-линейного-оператора-отвечающие-различным-собственным-значениям-ответ-обоснуйте">28. Каким свойством обладают собственные векторы линейного оператора, отвечающие различным собственным значениям? Ответ обоснуйте.</h4>
+
+<p>Система векторов <script type="math/tex" id="MathJax-Element-427">(e_1, \dots, e_n)</script>, соответствующих различным собственным значениям <script type="math/tex" id="MathJax-Element-428">\lambda_1, \dots, \lambda_n</script>, линейно независима.</p>
+
+<p><script type="math/tex" id="MathJax-Element-429">\square</script> Доказываем по индукции по параметру <script type="math/tex" id="MathJax-Element-430">r</script> — количеству векторов.</p>
+
+<p><script type="math/tex" id="MathJax-Element-431">1)</script> При <script type="math/tex" id="MathJax-Element-432">r = 1</script> вектор ненулевой, а значит система из него линейно независима.</p>
+
+<p><script type="math/tex" id="MathJax-Element-433">2)</script> Пусть утверждение верно при <script type="math/tex" id="MathJax-Element-434">r = m</script>. Добавим к системе еще один собственный вектор <script type="math/tex" id="MathJax-Element-435">e_{m+1}</script>, отвечающий собственному значению <script type="math/tex" id="MathJax-Element-436">\lambda_{m+1}</script>. Предположим, что получившаяся система векторов линейно зависима:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-437">
+\alpha_1 e_1 + \dots + \alpha_m e_m + \alpha_{m+1} e_{m+1} = 0.
+</script></p>
+
+<p>Применим к обеим частям оператор, получится:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-438">
+\alpha_1 A e_1 + \dots + \alpha_m A e_m + \alpha_{m+1} A e_{m+1} = \\
+= \alpha_1 \lambda_1 e_1 + \dots + \alpha_m \lambda_m e_m + \alpha_{m+1} \lambda_{m+1} e_{m+1}.
+</script></p>
+
+<p>Умножив первое на <script type="math/tex" id="MathJax-Element-439">\lambda_{m+1}</script> и вычтя из него второе, получим:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-440">
+\alpha_1 (\lambda_1 - \lambda_{m+1}) e_1 + \dots + \alpha_m (\lambda_m - \lambda_{m+1}) e_m = 0,
+</script></p>
+
+<p>т. е. система векторов <script type="math/tex" id="MathJax-Element-441">(e_1, \dots, e_m)</script> линейно зависима. Пришли к противоречию. <script type="math/tex" id="MathJax-Element-442">\blacksquare</script></p>
+
+
+
+<h4 id="29-сформулируйте-и-докажите-критерий-диагональности-матрицы-оператора">29. Сформулируйте и докажите критерий диагональности матрицы оператора.</h4>
+
+<p>Матрица оператора диагональна, когда она определена в базисе собственных векторов этого оператора.</p>
+
+<p><script type="math/tex" id="MathJax-Element-443">\square</script> Допустим, <script type="math/tex" id="MathJax-Element-444">(e_1, \dots, e_n)</script> — базис собственных векторов оператора <script type="math/tex" id="MathJax-Element-445">\mathcal{A}</script>. Тогда матрица этого оператора в данном базисе (которая по определению состоит из образов векторов этого базиса, записанных по столбцам) будет иметь вид</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-446">
+A = \mathcal{A}(e_1, \dots, e_n) = (\mathcal{A}e_1, \dots, \mathcal{A}e_n) = \\
+= (\lambda_1 e_1, \dots, \lambda_n e_n),
+</script></p>
+
+<p>откуда</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-447">
+A = \begin{pmatrix}
+\lambda_1 & \dots & 0 \\
+\vdots & \ddots & \vdots \\
+0 & \dots & \lambda_n
+\end{pmatrix}. \blacksquare
+</script></p>
+
+
+
+<h4 id="30-каким-свойством-обладает-оператор-в-n-мерном-вещественном-пространстве-у-которого-есть-n-различных-действительных-корней-ответ-обосновать">30. Каким свойством обладает оператор в <script type="math/tex" id="MathJax-Element-448">n</script>-мерном вещественном пространстве, у которого есть <script type="math/tex" id="MathJax-Element-449">n</script> различных действительных корней? Ответ обосновать.</h4>
+
+
+
+<h1 id="чо-блять">ЧО БЛЯТЬ</h1>
+
+
+
+<h4 id="31-выпишите-и-докажите-неравенство-коши-буняковского">31. Выпишите и докажите неравенство Коши-Буняковского.</h4>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-450">
+|(x, y)| \leq \|x\| \|y\|.
+</script></p>
+
+<p><script type="math/tex" id="MathJax-Element-451">\square</script> Так как скалярное произведение положительно определено,</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-452">
+\lambda^2 (x, x) - 2\lambda (x, y) + (y, y) = (\lambda x - y, \lambda x - y) \geq 0,
+</script></p>
+
+<p>где <script type="math/tex" id="MathJax-Element-453">\lambda</script> — произвольное вещественное число.</p>
+
+<p>Посмотрим на левую часть как на квадратный трехчлен <script type="math/tex" id="MathJax-Element-454">f(\lambda)</script>. Тогда ее дискриминант:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-455">
+D(f) = (2 (x, y))^2 - 4(x, x) (y, y).
+</script></p>
+
+<p>Так как <script type="math/tex" id="MathJax-Element-456">f(\lambda) \geq 0</script> для всех <script type="math/tex" id="MathJax-Element-457">\lambda</script>, то <script type="math/tex" id="MathJax-Element-458">D(f) \leq 0</script>, откуда</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-459">
+(2 (x, y))^2 \leq 4(x, x) (y, y).
+</script></p>
+
+<p>Разделим обе части на 2 и возьмем квадратные корни:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-460">
+(x, y) \leq \sqrt{(x, x)} \sqrt{(y, y)} = \|x\| \|y\|. \blacksquare
+</script></p>
+
+
+
+<h4 id="32-сформулируйте-и-докажите-критерий-линейной-зависимости-с-помощью-матрицы-грама">32. Сформулируйте и докажите критерий линейной зависимости с помощью матрицы грама.</h4>
+
+<p>Система векторов линейно зависима тогда и только тогда, когда определитель матрицы Грама этой системы равен нулю.</p>
+
+<p><script type="math/tex" id="MathJax-Element-461">\square</script> Система векторов <script type="math/tex" id="MathJax-Element-462">e_1, \dots, e_n</script> линейно зависима, значит, что существует такой набор ненулевых коэффициентов, что</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-463">
+x_1 e_1 + \dots + x_n e_n = 0.
+</script></p>
+
+<p>Умножаем скалярно обе части сначала на <script type="math/tex" id="MathJax-Element-464">e_1</script>, потом на <script type="math/tex" id="MathJax-Element-465">e_2</script>, получим условие</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-466">
+\Gamma (e_1, \dots, e_n) \begin{pmatrix}
+x_1 \\
+\vdots \\
+x_n
+\end{pmatrix} = 0,
+</script></p>
+
+<p>которое является однородной СЛАУ с матрицей <script type="math/tex" id="MathJax-Element-467">\Gamma (e_1, \dots, e_n)</script> и нетривиальным решением <script type="math/tex" id="MathJax-Element-468">(x_1, \dots, x_n)^T</script>, что эквивалентно условию <script type="math/tex" id="MathJax-Element-469">\det \Gamma (e_1, \dots, e_n) = 0</script>. <script type="math/tex" id="MathJax-Element-470">\blacksquare</script></p></div></body>
+</html>

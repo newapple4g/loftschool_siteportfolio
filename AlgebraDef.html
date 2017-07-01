@@ -1,0 +1,2208 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AlgebraDef</title>
+<link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body><div class="container"><h1 id="определения-маме-ненужного-зятя-предложения">Определения-маме-ненужного-зятя-предложения</h1>
+
+
+
+<h2 id="1-линейные-системы-и-матрицы">1. Линейные системы и матрицы</h2>
+
+
+
+<h4 id="1-дать-определение-умножения-матриц-коммутативна-ли-эта-операция-ответ-пояснить">1. Дать определение умножения матриц. Коммутативна ли эта операция? Ответ пояснить.</h4>
+
+<p>Произведение <script type="math/tex" id="MathJax-Element-1">\underset{m\times p}{C}</script> матриц <script type="math/tex" id="MathJax-Element-2">\underset{m\times n}{A}</script> и <script type="math/tex" id="MathJax-Element-3">\underset{n\times p}{B}</script> определяется как</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-4">
+AB_{ij} = \sum_{k=1}^m A_{ik} B_{kj}.
+</script></p>
+
+<p>Операция не коммутативна. Приведем пример:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-5">
+A = \begin{pmatrix}
+1 & -1 \\
+1 & 1
+\end{pmatrix}, B = \begin{pmatrix}
+1 & 2 \\
+-1 & 1
+\end{pmatrix}, \\
+\space \\
+AB = \begin{pmatrix}
+2 & 1 \\
+0 & 3
+\end{pmatrix}, BA = \begin{pmatrix}
+3 & 1 \\
+0 & 2
+\end{pmatrix}.
+</script></p>
+
+
+
+<h4 id="2-дать-определение-ступенчатого-вида-матрицы-и-канонического-вида-матрицы">2. Дать определение ступенчатого вида матрицы и канонического вида матрицы.</h4>
+
+<p>Ступенчатый вид:</p>
+
+<ul>
+<li>все ненулевые строки стоят выше нулевых;</li>
+<li>ведущий элемент <script type="math/tex" id="MathJax-Element-6">i</script>-й строки стоит левее ведущего элемента <script type="math/tex" id="MathJax-Element-7">i+1</script>-й строки.</li>
+</ul>
+
+<p>Канонический вид — то же, плюс:</p>
+
+<ul>
+<li>ведущие элементы ненулевых строк равны <script type="math/tex" id="MathJax-Element-8">1</script>;</li>
+<li>ведущие элементы в своих столбцах являются единственными ненулевыми.</li>
+</ul>
+
+
+
+<h4 id="3-что-такое-элементарные-преобразования-строк-матрицы">3. Что такое элементарные преобразования строк матрицы?</h4>
+
+<ul>
+<li>Прибавление к одной строке другой, домноженной на коэффициент;</li>
+<li>Перестановка местами двух строк;</li>
+<li>Домножение строки на ненулевой коэффициент.</li>
+</ul>
+
+
+
+<h4 id="4-сформулировать-теорему-о-методе-гаусса-алгоритм-приводить-не-нужно">4. Сформулировать теорему о методе Гаусса (алгоритм приводить не нужно).</h4>
+
+<p>Любая конечная матрица может быть элементарными преобразованиями строк приведена к каноническому виду.</p>
+
+
+
+<h4 id="5-дать-определение-перестановки-и-подстановки">5. Дать определение перестановки и подстановки.</h4>
+
+<p>Перестановка — упорядоченный набор элементов множества целых чисел от <script type="math/tex" id="MathJax-Element-9">1</script> до <script type="math/tex" id="MathJax-Element-10">n</script>.</p>
+
+<p>Подстановка — биекция множества <script type="math/tex" id="MathJax-Element-11">\overline{1, n}</script> на себя.</p>
+
+
+
+<h4 id="6-дать-определение-инверсии-и-транспозиции">6. Дать определение инверсии и транспозиции.</h4>
+
+<p>Инверсия — пара индексов такая, что:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-12">
+i < j \; \wedge \pi(i) > \pi(j).
+</script></p>
+
+<p>Транспозиция — подстановка, меняющая местами два элемента.</p>
+
+
+
+<h4 id="7-дать-определение-знака-и-четности-подстановки">7. Дать определение знака и четности подстановки.</h4>
+
+<p>Знак — <script type="math/tex" id="MathJax-Element-13">-1</script> в степени количества инверсий.</p>
+
+<p>Четность — четность числа инверсий.</p>
+
+
+
+<h4 id="8-выписать-общую-формулу-для-вычисления-определителя-произвольного-порядка">8. Выписать общую формулу для вычисления определителя произвольного порядка.</h4>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-14">
+\det \underset{n \times n}{A} = \sum_{\pi \in S_n} (-1)^{N(\pi)} a_{1 \pi(1)} a_{2 \pi(2)} \dots a_{n \pi(n)},
+</script></p>
+
+<p>где <script type="math/tex" id="MathJax-Element-15">N(\pi)</script> — число инверсий в подстановке <script type="math/tex" id="MathJax-Element-16">\pi</script>.</p>
+
+
+
+<h4 id="9-выписать-формулы-для-разложения-определителя-по-строке-и-по-столбцу">9. Выписать формулы для разложения определителя по строке и по столбцу.</h4>
+
+<p>По <script type="math/tex" id="MathJax-Element-17">i</script>-й строке:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-18">
+\det \underset{n \times n}{A} = \sum_{j = 1}^n a_{ij} A_{ij},
+</script></p>
+
+<p>по <script type="math/tex" id="MathJax-Element-19">j</script>-му столбцу:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-20">
+\det \underset{n \times n}{A} = \sum_{i = 1}^n  a_{ij} A_{ij},
+</script></p>
+
+<p>где <script type="math/tex" id="MathJax-Element-21">A_{ij}</script> — алгебраическое дополение элемента <script type="math/tex" id="MathJax-Element-22">a_{ij}</script>.</p>
+
+
+
+<h4 id="10-что-такое-фальшивое-разложение">10. Что такое фальшивое разложение?</h4>
+
+<p>Сумма произведений элементов одной строки (столбца) на алгебраические дополнения соответствующих элементов другой строки (столбца). Фальшивое разложение равно нулю.</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-23">
+\sum_{j = 1}^n a_{ij} A_{kj} = 0, i \neq k \\
+\sum_{i = 1}^n  a_{ij} A_{ik} = 0, j \neq k
+</script></p>
+
+
+
+<h4 id="11-что-представляет-собой-функция-от-столбцов-матрицы-если-она-линейна-по-каждому-аргументу-кососимметрична-и-принимает-значение-1-на-единичной-матрице">11. Что представляет собой функция от столбцов матрицы, если она линейна по каждому аргументу, кососимметрична и принимает значение <script type="math/tex" id="MathJax-Element-24">1</script> на единичной матрице?</h4>
+
+<p>Определитель (аксиоматическое определение).</p>
+
+
+
+<h4 id="12-выписать-формулы-крамера-для-квадратной-матрицы-произвольного-порядка">12. Выписать формулы Крамера для квадратной матрицы произвольного порядка.</h4>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-25">
+x_i = \frac{\Delta_i}{\Delta},
+</script></p>
+
+<p>где <script type="math/tex" id="MathJax-Element-26">\Delta</script> — определитель основной матрицы, а <script type="math/tex" id="MathJax-Element-27">\Delta_i</script> определитель матрицы, полученной из основной заменой <script type="math/tex" id="MathJax-Element-28">i</script>-го столбца на столбец свободных членов.</p>
+
+
+
+<h4 id="13-что-такое-дополняющий-минор-и-что-такое-алгебраическое-дополнение">13. Что такое дополняющий минор и что такое алгебраическое дополнение?</h4>
+
+<p>Дополняющий минор <script type="math/tex" id="MathJax-Element-29">M_{ij}</script> — определитель матрицы, полученной из исходной вычеркиванием <script type="math/tex" id="MathJax-Element-30">i</script>-й строки и <script type="math/tex" id="MathJax-Element-31">j</script>-го столбца.</p>
+
+<p>Алгебраическое дополнение элемента <script type="math/tex" id="MathJax-Element-32">a_{ij}</script>:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-33">
+A_{ij} = (-1)^{i + j} M_{ij}.
+</script></p>
+
+
+
+<h4 id="14-дать-определение-союзной-матрицы">14. Дать определение союзной матрицы.</h4>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-34">
+A^* = \begin{pmatrix}
+A_{11} & A_{21} & \dots & A_{n1} \\
+A_{12} & A_{22} & \dots & A_{n2} \\
+\vdots & \vdots & \ddots & \vdots & \\
+A_{1n} & A_{2n} & \dots & A_{nn} \\
+\end{pmatrix},
+</script></p>
+
+<p>где <script type="math/tex" id="MathJax-Element-35">A_{ij}</script> — алгебраические дополнения соответствующих элементов.</p>
+
+
+
+<h4 id="15-дать-определения-обратной-матрицы-сформулировать-критерий-существования-обратной-матрицы">15. Дать определения обратной матрицы. Сформулировать критерий существования обратной матрицы.</h4>
+
+<p><script type="math/tex" id="MathJax-Element-36">A^{-1}</script> — обратная к <script type="math/tex" id="MathJax-Element-37">A</script>, если</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-38">
+A^{-1} A = A A^{-1} = E.
+</script></p>
+
+<p>Обратная матрица существует, если исходная матрица квадратная и невырождена.</p>
+
+
+
+<h4 id="16-выписать-формулу-для-нахождения-обратной-матрицы">16. Выписать формулу для нахождения обратной матрицы.</h4>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-39">
+A^{-1} = \frac{1}{\det A} A^*,
+</script></p>
+
+<p>где <script type="math/tex" id="MathJax-Element-40">A^*</script> — союзная.</p>
+
+
+
+<h4 id="17-дать-определение-минора">17. Дать определение минора.</h4>
+
+<p>Минор <script type="math/tex" id="MathJax-Element-41">A^{\alpha_1, \dots, \alpha_k}_{\beta_1, \dots, \beta_l}</script> матрицы <script type="math/tex" id="MathJax-Element-42">A</script> — определитель матрицы, состоящей из элементов матрицы <script type="math/tex" id="MathJax-Element-43">A</script>, стоящих на пересечении строк <script type="math/tex" id="MathJax-Element-44">\alpha_1, \dots, \alpha_k</script> и столбцов <script type="math/tex" id="MathJax-Element-45">\beta_1, \dots, \beta_l</script>.</p>
+
+
+
+<h4 id="18-дать-определение-базисного-минора">18. Дать определение базисного минора.</h4>
+
+<p>Базисный минор — любой ненулевой минор максимального порядка.</p>
+
+
+
+<h4 id="19-дать-определение-линейной-комбинации-строк">19. Дать определение линейной комбинации строк.</h4>
+
+<p>Сумма строк, умноженных на коэффициенты.</p>
+
+
+
+<h4 id="20-дать-определение-линейной-зависимости-строк-матрицы">20. Дать определение линейной зависимости строк матрицы.</h4>
+
+<p>Строки <script type="math/tex" id="MathJax-Element-46">v_1, \dots, v_n</script> линейно зависимы, если существует ненулевой набор коэффициентов <script type="math/tex" id="MathJax-Element-47">\alpha_1, \dots, \alpha_n</script> такой, что</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-48">
+\alpha_1 v_1 + \dots + \alpha_n v_n = 0.
+</script></p>
+
+
+
+<h4 id="21-дать-определение-линейной-независимости-столбцов-матрицы">21. Дать определение линейной независимости столбцов матрицы.</h4>
+
+<p>Столбцы <script type="math/tex" id="MathJax-Element-49">v_1, \dots, v_n</script> линейно независимы, если</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-50">
+\alpha_1 v_1 + \dots + \alpha_n v_n = 0 \Rightarrow \alpha_1 = \dots = \alpha_n = 0.
+</script></p>
+
+
+
+<h4 id="22-сформулировать-критерий-линейной-зависимости">22. Сформулировать критерий линейной зависимости.</h4>
+
+<p>Набор векторов линейно зависим, если один из векторов линейно выражается через другие.</p>
+
+
+
+<h4 id="23-дать-определение-ранга-матрицы-как-связан-ранг-матрицы-с-рангом-транспонированной-матрицы">23. Дать определение ранга матрицы. Как связан ранг матрицы с рангом транспонированной матрицы?</h4>
+
+<p>Ранг матрицы — порядок ее базисного минора.</p>
+
+<p>Ранг транспонированной матрицы равен рангу обычной.</p>
+
+
+
+<h4 id="24-сформулировать-теорему-о-базисном-миноре">24. Сформулировать теорему о базисном миноре.</h4>
+
+<p>Столбцы базисного минора линейно независимы, а все остальные столбцы есть их линейные комбинации.</p>
+
+
+
+<h4 id="25-формулировать-теорему-о-ранге-матрицы">25. Формулировать теорему о ранге матрицы.</h4>
+
+<p>Ранг матрицы равен максимальному числу линейно независимых строк (столбцов) этой матрицы.</p>
+
+
+
+<h4 id="26-сформулировать-критерий-невыроженности-квадратной-матрицы">26. Сформулировать критерий невыроженности квадратной матрицы.</h4>
+
+<p>Ранг равен размерности.</p>
+
+
+
+<h4 id="27-выписать-свойства-решений-однородных-и-неоднородных-слау">27. Выписать свойства решений однородных и неоднородных СЛАУ.</h4>
+
+<ul>
+<li><p>Линейная комбинация решений однородной СЛАУ является решением однородной СЛАУ;</p></li>
+<li><p>разность двух решений неоднородной СЛАУ есть решение однородной СЛАУ;</p></li>
+<li><p>сумма решения однородной СЛАУ и решения неоднородной СЛАУ есть решение неоднородной СЛАУ.</p></li>
+</ul>
+
+
+
+<h4 id="28-сформулировать-теорему-кронекера-капелли">28. Сформулировать теорему Кронекера-Капелли.</h4>
+
+<p>СЛАУ совместна тогда и только тогда, когда ранг ее основной матрицы равен рангу расширенной.</p>
+
+
+
+<h4 id="29-сформулировать-критерий-существования-ненулевого-решения-однородной-системы-линейных-уравнений-с-квадратной-матрицей">29. Сформулировать критерий существования ненулевого решения однородной системы линейных уравнений с квадратной матрицей.</h4>
+
+<p>Ее основная матрица вырождена.</p>
+
+
+
+<h4 id="30-дать-определение-фср-однородной-слау">30. Дать определение ФСР однородной СЛАУ.</h4>
+
+<p>ФСР — базис множества решений.</p>
+
+
+
+<h4 id="31-сформулировать-теорему-о-структуре-общего-решения-однородной-слау">31. Сформулировать теорему о структуре общего решения однородной СЛАУ.</h4>
+
+<p>Любое решение <script type="math/tex" id="MathJax-Element-51">x</script> однородной СЛАУ представляется в виде:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-52">
+x = c_1 \phi_1 + \dots + c_k \phi_k,
+</script></p>
+
+<p>где <script type="math/tex" id="MathJax-Element-53">\phi_1, \dots, \phi_k</script> — ФСР.</p>
+
+
+
+<h4 id="32-сформулировать-теорему-о-структуре-общего-решения-неоднородной-слау">32. Сформулировать теорему о структуре общего решения неоднородной СЛАУ.</h4>
+
+<p>Любое решение <script type="math/tex" id="MathJax-Element-54">x</script> неоднородной СЛАУ представляется в виде:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-55">
+x = x_0 + c_1 \phi_1 + \dots + c_k \phi_k,
+</script></p>
+
+<p>где <script type="math/tex" id="MathJax-Element-56">\phi_1, \dots, \phi_k</script> — ФСР соответствующей однородной СЛАУ, а <script type="math/tex" id="MathJax-Element-57">x_0</script> — частное решение неоднородной СЛАУ.</p>
+
+
+
+<h2 id="2-элементы-аналитической-геометрии">2. Элементы аналитической геометрии.</h2>
+
+
+
+<h4 id="1-дать-определение-векторного-произведения-векторов-в-трехмерном-пространстве">1. Дать определение векторного произведения векторов в трехмерном пространстве.</h4>
+
+<p>Векторное произведение векторов <script type="math/tex" id="MathJax-Element-58">a</script> и <script type="math/tex" id="MathJax-Element-59">b</script> — такой вектор <script type="math/tex" id="MathJax-Element-60">c = [a, b]</script>:</p>
+
+<ul>
+<li><script type="math/tex" id="MathJax-Element-61">|c| = |a| |b| \sin\phi</script>, где <script type="math/tex" id="MathJax-Element-62">\phi</script> — угол между <script type="math/tex" id="MathJax-Element-63">a</script> и <script type="math/tex" id="MathJax-Element-64">b</script>;</li>
+<li>вектор <script type="math/tex" id="MathJax-Element-65">c</script> ортогонален каждому из векторов <script type="math/tex" id="MathJax-Element-66">a</script> и <script type="math/tex" id="MathJax-Element-67">b</script>;</li>
+<li>тройка <script type="math/tex" id="MathJax-Element-68">abc</script> является правой.</li>
+</ul>
+
+
+
+<h4 id="2-сформулировать-алгебраические-свойства-векторного-произведения">2. Сформулировать алгебраические свойства векторного произведения.</h4>
+
+<ul>
+<li><script type="math/tex" id="MathJax-Element-69">[a, b] = - [b, a]</script>;</li>
+<li><script type="math/tex" id="MathJax-Element-70">[\alpha a, b] = [a, \alpha b] = \alpha [a, b]</script>;</li>
+<li><script type="math/tex" id="MathJax-Element-71">[a + b, c]=[a, c] + [b, c]</script>;</li>
+<li><script type="math/tex" id="MathJax-Element-72">[a, a] = 0</script>.</li>
+</ul>
+
+
+
+<h4 id="3-выписать-формулу-для-вычисления-векторного-произведения-в-координатах-заданных-в-ортонормированном-базисе">3. Выписать формулу для вычисления векторного произведения в координатах, заданных в ортонормированном базисе.</h4>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-73">
+[a, b] = \begin{vmatrix}
+\mathbf{i} & \mathbf{j} & \mathbf{k} \\
+a_x & a_y & a_z \\
+b_x & b_y & b_z 
+\end{vmatrix},
+</script></p>
+
+<p>где <script type="math/tex" id="MathJax-Element-74">\mathbf{i}, \mathbf{j}, \mathbf{k}</script> — соответствующие базисные вектора.</p>
+
+
+
+<h4 id="4-сформулировать-критерий-коллинеарности-двух-векторов-с-помощью-векторного-произведения">4. Сформулировать критерий коллинеарности двух векторов с помощью векторного произведения.</h4>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-75">
+[a, b] = 0.
+</script></p>
+
+
+
+<h4 id="5-дать-определение-смешанного-произведения-векторов-как-вычислить-объем-параллелепипеда-с-помощью-смешанного-произведения">5. Дать определение смешанного произведения векторов Как вычислить объем параллелепипеда с помощью смешанного произведения?</h4>
+
+<p>Смешанное произведение векторов <script type="math/tex" id="MathJax-Element-76">a</script>, <script type="math/tex" id="MathJax-Element-77">b</script>, <script type="math/tex" id="MathJax-Element-78">c</script>:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-79">
+(a, [b, c]).
+</script></p>
+
+<p>Объем параллелепипеда, построенного на векторах <script type="math/tex" id="MathJax-Element-80">a</script>, <script type="math/tex" id="MathJax-Element-81">b</script>, <script type="math/tex" id="MathJax-Element-82">c</script>:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-83">
+V_{пар.} = |(a, [b, c])|.
+</script></p>
+
+
+
+<h4 id="6-выписать-формулу-для-вычисления-смешанного-произведения-в-координатах-заданных-в-ортонормированном-базисе">6. Выписать формулу для вычисления смешанного произведения в координатах, заданных в ортонормированном базисе.</h4>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-84">
+(a, [b, c]) = \begin{vmatrix}
+a_x & a_y & a_z \\
+b_x & b_y & b_z \\
+c_x & c_y & c_z
+\end{vmatrix}.
+</script></p>
+
+
+
+<h4 id="7-сформулировать-критерий-компланарности-трех-векторов-с-помощью-смешанного-произведения">7. Сформулировать критерий компланарности трех векторов с помощью смешанного произведения.</h4>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-85">
+(a, [b, c]) = 0.
+</script></p>
+
+
+
+<h4 id="8-дать-определение-прямоугольной-декартовой-системы-координат-что-такое-радиус-вектор-точки">8. Дать определение прямоугольной декартовой системы координат. Что такое радиус-вектор точки?</h4>
+
+<p>Прямоугольная декартова система координат — такая система координат, где оси попарно перпендикулярны, а масштабы по всем осям одинаковы.</p>
+
+<p>Радиус-вектор — вектор, задающий положение точки в пространстве относительно начала координат.</p>
+
+
+
+<h4 id="9-что-такое-уравнение-поверхности-и-ее-геометрический-образ">9. Что такое уравнение поверхности и ее геометрический образ?</h4>
+
+<p>Уравнение поверхности:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-86">
+F(x, y, z) = 0,
+</script></p>
+
+<p>где <script type="math/tex" id="MathJax-Element-87">x, y, z</script> — координаты точки в трехмерном пространстве, а <script type="math/tex" id="MathJax-Element-88">F</script> — многочлен от 3 переменных.</p>
+
+<p>Геометрический образ поверхности — геометрическое место точек, удовлетворяющих уравнению поверхности.</p>
+
+
+
+<h4 id="10-сформулировать-теорему-о-том-что-задает-любое-линеиное-уравнение-на-координаты-точки-в-трехмерном-пространстве">10.  Сформулировать теорему о том, что задает любое линейное уравнение на координаты точки в трехмерном пространстве.</h4>
+
+<p><em>Любое линейное уравнение на координаты точки в трехмерном пространстве</em> задает плоскость.</p>
+
+
+
+<h4 id="11-дать-определение-нормали-к-плоскости-выписать-формулу-для-нахождения-угла-между-плоскостями">11. Дать определение нормали к плоскости. Выписать формулу для нахождения угла между плоскостями.</h4>
+
+<p>Для плоскости, заданной уравнением <script type="math/tex" id="MathJax-Element-89">Ax + By + Cz + D = 0</script> вектор нормали:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-90">
+\vec{n} = (A, B, C).
+</script></p>
+
+<p>Если <script type="math/tex" id="MathJax-Element-91">\phi</script> — угол между плоскостями, то</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-92">
+\cos \phi = \frac{(\vec{n_1}, \vec{n_2})}{|\vec{n_1}| |\vec{n_2}|},
+</script></p>
+
+<p>где <script type="math/tex" id="MathJax-Element-93">\vec{n_1}</script>, <script type="math/tex" id="MathJax-Element-94">\vec{n_1}</script> — их нормальные вектора.</p>
+
+
+
+<h4 id="12-выписать-формулу-для-расстояния-от-точки-до-плоскости">12. Выписать формулу для расстояния от точки до плоскости.</h4>
+
+<p>Расстояние от точки <script type="math/tex" id="MathJax-Element-95">(x_0, y_0, z_0)</script> до плоскости <script type="math/tex" id="MathJax-Element-96">Ax + By + Cz + D = 0</script>:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-97">
+\frac{|Ax_0 + By_0 + Cz_0 + D|}{\sqrt{A^2 + B^2 + C^2}}.
+</script></p>
+
+
+
+<h4 id="13-общие-уравнения-прямои-векторное-уравнение-прямои-параметрические-и-канонические-уравнения-прямои">13. Общие уравнения прямой. Векторное уравнение прямой. Параметрические и канонические уравнения прямой.</h4>
+
+<p>Общее:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-98">
+\begin{cases}
+A_1x + B_1y + C_1z + D_1 = 0 \\
+A_2x + B_2y + C_2z + D_2 = 0
+\end{cases}.
+</script></p>
+
+<p>Векторное:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-99">
+r = r_0 + t a, \;\; t \in (-\infty, +\infty).
+</script></p>
+
+<p>Параметрическое:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-100">
+\begin{cases}
+x = x_0 + l t \\
+y = y_0 + mt \\
+z = z_0 + nt
+\end{cases}.
+</script></p>
+
+<p>Каноническое:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-101">
+\frac{x - x_0}{l} = \frac{y - y_0}{m} = \frac{z - z_0}{n}.
+</script></p>
+
+<p>Каноническое по двум точкам:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-102">
+\frac{x - x_0}{x_1 - x_0} = \frac{y - y_0}{y_1 - y_0} = \frac{z - z_0}{z_1 - z_0}.
+</script></p>
+
+
+
+<h4 id="14-как-найти-угол-между-прямой-и-плоскостью">14. Как найти угол между прямой и плоскостью?</h4>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-103">
+\sin \phi = \frac{(\vec{a}, \vec{n})}{|\vec{a}| |\vec{n}|},
+</script></p>
+
+<p>где <script type="math/tex" id="MathJax-Element-104">\vec{a}</script> — направляющий вектор прямой, <script type="math/tex" id="MathJax-Element-105">\vec{n}</script> — нормальный вектор плоскости.</p>
+
+
+
+<h4 id="15-сформулировать-критерии-принадлежности-двух-прямых-однои-плоскости">15. Сформулировать критерий принадлежности двух прямых одной плоскости.</h4>
+
+<p>Если <script type="math/tex" id="MathJax-Element-106">a</script>, <script type="math/tex" id="MathJax-Element-107">b</script> — направляющие вектора прямых, а <script type="math/tex" id="MathJax-Element-108">M_1, M_2</script> — произвольные точки на них, то прямые лежат в одной плоскости тогда и только тогда, когда вектора <script type="math/tex" id="MathJax-Element-109">a</script>, <script type="math/tex" id="MathJax-Element-110">b</script> и <script type="math/tex" id="MathJax-Element-111">\vec{M_1 M_2}</script> компланарны:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-112">
+(a, b, \vec{M_1 M_2}) = 0.
+</script></p>
+
+
+
+<h4 id="16-выписать-формулу-для-вычисления-расстояния-от-точки-до-прямои">16. Выписать формулу для вычисления расстояния от точки до прямой.</h4>
+
+<p>Если <script type="math/tex" id="MathJax-Element-113">a</script> — направляющий вектор прямой, <script type="math/tex" id="MathJax-Element-114">M_1</script> — точка, лежащая на прямой, то расстояние от прямой до точки <script type="math/tex" id="MathJax-Element-115">M_0</script> равно</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-116">
+\frac{|[\vec{M_1 M_0}, a]|}{|a|}.
+</script></p>
+
+
+
+<h4 id="17-выписать-формулу-для-вычисления-расстояния-между-двумя-скрещивающимися-прямыми">17. Выписать формулу для вычисления расстояния между двумя скрещивающимися прямыми.</h4>
+
+<p>Если <script type="math/tex" id="MathJax-Element-117">a</script>, <script type="math/tex" id="MathJax-Element-118">b</script> — направляющие векторы прямых, а <script type="math/tex" id="MathJax-Element-119">M_1</script>, <script type="math/tex" id="MathJax-Element-120">M_2</script> — точки на этих прямых, то расстояние между прямыми равно</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-121">
+\frac{(\vec{M_1 M_2}, [a, b])}{|[a, b]|}.
+</script></p>
+
+
+
+<h2 id="3-комплексные-числа-и-многочлены">3. Комплексные числа и многочлены.</h2>
+
+
+
+<h4 id="1-комплексные-числа-что-такое-алгебраическая-и-тригонометрическая-форма-записи">1. Комплексные числа, что такое алгебраическая и тригонометрическая форма записи?</h4>
+
+<p>Алгебраическая форма:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-122">
+z = a + b i.
+</script></p>
+
+<p>Тригонометрическая форма:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-123">
+z = r (cos \phi + i sin \phi).
+</script></p>
+
+
+
+<h4 id="2-дать-определение-модуля-и-аргумента-комплексного-числа-что-такое-главное-значение-аргумента-комплексного-числа">2. Дать определение модуля и аргумента комплексного числа. Что такое главное значение аргумента комплексного числа?</h4>
+
+<p>В тригонометрической записи</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-124">
+z = r (\cos \phi + i \sin \phi)
+</script></p>
+
+<p>модуль числа <script type="math/tex" id="MathJax-Element-125">z</script> — <script type="math/tex" id="MathJax-Element-126">r</script>, аргумент — <script type="math/tex" id="MathJax-Element-127">\phi</script>.</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-128">
+|a + bi| = \sqrt{a^2 + b^2}.
+</script></p>
+
+<p>Главное значение аргумента — такое значение аргумента <script type="math/tex" id="MathJax-Element-129">\phi</script>, что <script type="math/tex" id="MathJax-Element-130">-\pi \lt \phi \le \pi</script>.</p>
+
+
+
+<h4 id="3-сложение-умножение-комплексных-чисел-что-происходит-с-аргументами-и-модулями-комплексных-чисел-при-умножении">3. Сложение, умножение комплексных чисел. Что происходит с аргументами и модулями комплексных чисел при умножении?</h4>
+
+<p>Сложение:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-131">
+(a + bi) + (c + di) = (a + c) + (b + d)i.
+</script></p>
+
+<p>Умножение:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-132">
+(a + bi) (c + di) = (ac - bd) + (ad + bc)i.
+</script></p>
+
+<p>Модуль произведения равен произведению модулей.</p>
+
+<p>Аргумент произведения равен сумме аргументов.</p>
+
+
+
+<h4 id="4-что-такое-комплексное-сопряжение-как-можно-делить-комплексные-числа">4. Что такое комплексное сопряжение? Как можно делить комплексные числа?</h4>
+
+<p>Сопряжение:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-133">
+\overline{a + bi} = a - bi.
+</script></p>
+
+<p>Деление:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-134">
+\frac{a + bi}{c + di} = \frac{(a + bi)(c - di)}{(c + di)(c - di)} = \frac{(ac + bd) + (bc - ad)i}{c^2 + d^2}.
+</script></p>
+
+
+
+<h4 id="5-выписать-формулу-муавра">5. Выписать формулу Муавра.</h4>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-135">
+z^n = [r(\cos \phi + i \sin \phi)]^n = r^n (\cos (n \phi) + i \sin (n \phi)).
+</script></p>
+
+
+
+<h4 id="6-как-наити-комплексные-корни-n-ои-степени-из-комплексного-числа-сделаите-эскиз-на-котором-отметьте-исходное-число-и-все-корни-из-него">6. Как найти комплексные корни n-ой степени из комплексного числа? Сделайте эскиз, на котором отметьте исходное число и все корни из него.</h4>
+
+<p><script type="math/tex" id="MathJax-Element-136">n</script>-е корни из числа <script type="math/tex" id="MathJax-Element-137">z</script>:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-138">
+\sqrt[n]{z} = \sqrt[n]{r(\cos \phi + i \sin \phi)} = \sqrt[n]{r} (\cos \frac{\phi + 2 \pi k}{n} + i \sin \frac{\phi + 2 \pi k}{n}).
+</script></p>
+
+<p>Число 10 и корни 5-й степени из него:</p>
+
+<p><img src="http://i.imgur.com/NcOOcZ0.png" alt="" title=""></p>
+
+
+
+<h4 id="7-сформулировать-основную-теорему-алгебры-сформулировать-теорему-безу">7. Сформулировать основную теорему алгебры. Сформулировать теорему Безу.</h4>
+
+<p>Любой многочлен ненулевой степени имеет хотя бы один комплексный корень.</p>
+
+<p>Остаток от деления многочлена <script type="math/tex" id="MathJax-Element-139">P(x)</script> на <script type="math/tex" id="MathJax-Element-140">(x - a)</script> равен <script type="math/tex" id="MathJax-Element-141">P(a)</script>.</p>
+
+
+
+<h4 id="8-выписать-формулу-эйлера-выписать-выражение-для-синуса-через-экспоненту">8. Выписать формулу Эйлера. Выписать выражение для синуса через экспоненту.</h4>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-142">
+e^{ix} = \cos x + i \sin x.
+</script></p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-143">
+\sin x = \frac{e^{ix} - e^{-ix}}{2i}, \\
+\cos x = \frac{e^{ix} + e^{-ix}}{2}.
+</script></p>
+
+
+
+<h4 id="9-выписать-формулы-виета">9. Выписать формулы Виета.</h4>
+
+<p>Если <script type="math/tex" id="MathJax-Element-144">c_1, \dots, c_n</script> — корни многочлена <script type="math/tex" id="MathJax-Element-145">x^n + a_1 x^{n-1} + \dots + a_{n-1} x + a_n</script>, то</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-146">
+\begin{matrix}
+a_1  &=& - (c_1 + \dots + c_n) \\
+a_2  &=& c_1 c_2 + c_1 c_3 + \dots + c_1 c_n + c_2 c_3 + \dots + c_{n-1} c_n \\
+a_3 &=& - (c_1 c_2 c_3 + c_1 c_2 c_4 + \dots + c_{n-2} c_{n-1} c_n) \\
+\vdots & & \vdots \\
+a_n &=& (-1)^n a_1 a_2 \dots a_n
+\end{matrix}.
+</script></p>
+
+<p>Иначе говоря, <script type="math/tex" id="MathJax-Element-147">a_k</script> равно сумме всех возможных произведений из <script type="math/tex" id="MathJax-Element-148">k</script> разных корней, умноженной на <script type="math/tex" id="MathJax-Element-149">(-1)^k</script>.</p>
+
+
+
+<h4 id="10-какие-многочлены-называются-неприводимыми">10. Какие многочлены называются неприводимыми?</h4>
+
+<p>Многочлены, неразложимые на нетривиальные множители.</p>
+
+
+
+<h4 id="11-сформулировать-утверждение-о-разложении-многочленов-на-неприводимые-множители-над-комплексными-числами">11. Сформулировать утверждение о разложении многочленов на неприводимые множители над комплексными числами.</h4>
+
+<p>Всякий многочлен степени <script type="math/tex" id="MathJax-Element-150">n \ge 1</script> над полем <script type="math/tex" id="MathJax-Element-151">\mathbb{C}</script> раскладывается в произведение вида</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-152">
+a_n (x - z_1) \dots (x - z_n),
+</script></p>
+
+<p>где <script type="math/tex" id="MathJax-Element-153">a_n</script> — коэффициент при старшем члене, <script type="math/tex" id="MathJax-Element-154">z_1, \dots, z_n</script> — комплексные корни многочлена.</p>
+
+
+
+<h4 id="12-сформулировать-утверждение-о-разложение-многочленов-на-неприводимые-множители-над-деиствительными-числами">12. Сформулировать утверждение о разложение многочленов на неприводимые множители над действительными числами.</h4>
+
+<p>Всякий нормализованный многочлен степени <script type="math/tex" id="MathJax-Element-155">n \ge 1</script> над полем <script type="math/tex" id="MathJax-Element-156">\mathbb{R}</script> раскладывается в произведение <script type="math/tex" id="MathJax-Element-157">m \le n</script> неприводимых вида <script type="math/tex" id="MathJax-Element-158">(x - x_i)</script>, соответствующих его вещественным корням, и <script type="math/tex" id="MathJax-Element-159">\frac{n - m}{2}</script> неприводимых над <script type="math/tex" id="MathJax-Element-160">\mathbb{R}</script> многочленов второй степени, соответствующих парам его комплесно сопряженных корней.</p>
+
+
+
+<h2 id="4-элементы-общей-алгебры">4. Элементы общей алгебры.</h2>
+
+
+
+<h4 id="1-дать-определение-суръективного-отображения">1. Дать определение суръективного отображения.</h4>
+
+<p>Отображение <script type="math/tex" id="MathJax-Element-161">f: X \rightarrow Y</script> суръективное:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-162">
+\forall y \in Y \exists x \in X : y = f(x).
+</script></p>
+
+<p>(Функция, принимающая все возможные значения)</p>
+
+
+
+<h4 id="2-дать-определение-инъективного-отображения">2. Дать определение инъективного отображения.</h4>
+
+<p>Отображение <script type="math/tex" id="MathJax-Element-163">f: X \rightarrow Y</script> инъективное:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-164">
+f(x) = f(y) \Rightarrow x = y.
+</script></p>
+
+<p>(Разным аргументам соответствуют разные значения)</p>
+
+
+
+<h4 id="3-дать-определение-бинарного-отношения-дать-определение-отношения-эквивалентности">3. Дать определение бинарного отношения. Дать определение отношения эквивалентности.</h4>
+
+<p>Бинарное отношение <script type="math/tex" id="MathJax-Element-165">R</script> между множествами <script type="math/tex" id="MathJax-Element-166">A</script> и <script type="math/tex" id="MathJax-Element-167">B</script> — подмножество декартова произведения этих множеств:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-168">
+R \subseteq A \times B.
+</script></p>
+
+<p>Отношение эквивалентности — это рефлексивное, симметрическое, транзитивное отношение:</p>
+
+<ul>
+<li><script type="math/tex" id="MathJax-Element-169">\forall x \Rightarrow (x, x) \in R</script>;</li>
+<li><script type="math/tex" id="MathJax-Element-170">(x, y) \in R \Rightarrow (y, x) \in R</script>;</li>
+<li><script type="math/tex" id="MathJax-Element-171">(x, y) \in R, (y, z) \in R \Rightarrow (x, z) \in R</script>.</li>
+</ul>
+
+
+
+<h4 id="4-какие-операции-называются-ассоциативными-а-какие-коммутативными">4. Какие операции называются ассоциативными, а какие коммутативными?</h4>
+
+<p>Операция <script type="math/tex" id="MathJax-Element-172">*</script> ассоциативна:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-173">
+(A * B) * C = A * (B * C).
+</script></p>
+
+<p>Операция <script type="math/tex" id="MathJax-Element-174">*</script> коммутативна:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-175">
+A * B = B * A.
+</script></p>
+
+
+
+<h4 id="5-дать-определение-магмы-и-полугруппы">5. Дать определение магмы и полугруппы.</h4>
+
+<p>Магма — множество <script type="math/tex" id="MathJax-Element-176">M</script> с заданной на нем бинарной операцией <script type="math/tex" id="MathJax-Element-177">M \times M \rightarrow M</script>.</p>
+
+<p>Магма называется полугруппой, если</p>
+
+<ul>
+<li><script type="math/tex" id="MathJax-Element-178">\forall a, b, c \in M \Rightarrow (a * b) * c = a * (b * c)</script> (ассоциативность).</li>
+</ul>
+
+
+
+<h4 id="6-дать-определение-моноида">6. Дать определение моноида.</h4>
+
+<p>Множество <script type="math/tex" id="MathJax-Element-179">M</script> с определенной на нем операцией <script type="math/tex" id="MathJax-Element-180">*: M \times M \rightarrow M</script> называется моноидом, если</p>
+
+<ul>
+<li><script type="math/tex" id="MathJax-Element-181">\forall a, b, c \in M \Rightarrow (a * b) * c = a * (b * c)</script> (ассоциативность);</li>
+<li><script type="math/tex" id="MathJax-Element-182">\exists \epsilon \in M: \forall a \in M \Rightarrow \epsilon a = a \epsilon = a</script> (нейтральный элемент);.</li>
+</ul>
+
+
+
+<h4 id="7-дать-определение-обратимого-элемента">7. Дать определение обратимого элемента.</h4>
+
+<p>Элемент <script type="math/tex" id="MathJax-Element-183">a</script> обратим, если</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-184">
+\exists a^{-1}: a a^{-1} = a^{-1} a= \epsilon,
+</script></p>
+
+<p>где <script type="math/tex" id="MathJax-Element-185">\epsilon</script> — нейтральный элемент.</p>
+
+
+
+<h4 id="8-сформулировать-определение-группы">8. Сформулировать определение группы.</h4>
+
+<p>Множество <script type="math/tex" id="MathJax-Element-186">G</script> с определенной на нем операцией <script type="math/tex" id="MathJax-Element-187">*: G \times G \rightarrow G</script> называется группой, если</p>
+
+<ul>
+<li><script type="math/tex" id="MathJax-Element-188">\forall a, b, c \in G \Rightarrow (a * b) * c = a * (b * c)</script> (ассоциативность);</li>
+<li><script type="math/tex" id="MathJax-Element-189">\exists \epsilon \in G: \forall a \in G \Rightarrow \epsilon a = a \epsilon = a</script> (нейтральный элемент);</li>
+<li><script type="math/tex" id="MathJax-Element-190">\forall a \in G \Rightarrow \exists a^{-1} \in G: a * a^{-1} = a^{-1} * a = \epsilon</script> (обратный элемент).</li>
+</ul>
+
+
+
+<h4 id="9-что-такое-симметрическая-группа">9. Что такое симметрическая группа?</h4>
+
+<p>Симметрическая группа <script type="math/tex" id="MathJax-Element-191">S_n</script> — группа всех перестановок с операцией композиции.</p>
+
+
+
+<h4 id="10-что-такое-общая-линеиная-и-специальная-линеиная-группы">10. Что такое общая линейная и специальная линейная группы?</h4>
+
+<p>Общая линейная группа <script type="math/tex" id="MathJax-Element-192">GL_n</script> — группа матриц <script type="math/tex" id="MathJax-Element-193">n \times n</script> с операцией умножения матрицы.</p>
+
+<p>Специальная линейная группа <script type="math/tex" id="MathJax-Element-194">SL_n</script> — подгруппа <script type="math/tex" id="MathJax-Element-195">GL_n</script>, содержащая только матрицы, у которых определитель равен <script type="math/tex" id="MathJax-Element-196">1</script>.</p>
+
+
+
+<h4 id="11-сформулировать-определение-абелевои-группы">11. Сформулировать определение абелевой группы.</h4>
+
+<p>Группа, операция которой коммутативна.</p>
+
+
+
+<h4 id="12-дать-определение-подгруппы">12. Дать определение подгруппы.</h4>
+
+<p>Если</p>
+
+<ul>
+<li><script type="math/tex" id="MathJax-Element-197">(G, * )</script> — группа;</li>
+<li><script type="math/tex" id="MathJax-Element-198">H \subseteq G</script>;</li>
+<li><script type="math/tex" id="MathJax-Element-199">(H, *)</script> — тоже группа;</li>
+</ul>
+
+<p>то говорят, что <script type="math/tex" id="MathJax-Element-200">H</script> — подгруппа <script type="math/tex" id="MathJax-Element-201">G</script>.</p>
+
+
+
+<h4 id="13-сформулировать-определение-циклической-группы">13. Сформулировать определение циклической группы.</h4>
+
+<p>Группа степеней одного элемента.</p>
+
+
+
+<h4 id="14-дать-определение-порядка-элемента">14. Дать определение порядка элемента.</h4>
+
+<p>Порядок элемента <script type="math/tex" id="MathJax-Element-202">p</script> — наименьшее <script type="math/tex" id="MathJax-Element-203">i</script> такое, что <script type="math/tex" id="MathJax-Element-204">p^i = e</script>.</p>
+
+
+
+<h4 id="15-какова-связь-порядка-элемента-порождающего-циклическую-группу-с-порядком-группы">15. Какова связь порядка элемента, порождающего циклическую группу, с порядком группы?</h4>
+
+<p>Порядок порождающего элемента равен порядку группы.</p>
+
+
+
+<h4 id="16-дать-определение-таблицы-кэли">16. Дать определение таблицы Кэли.</h4>
+
+<p>Таблица, содержащая результаты применения бинарной операции к различным парам элементов. При этом элемент, соответствующий строке, идет первым.</p>
+
+
+
+<h4 id="17-дать-определение-изоморфизма-групп">17. Дать определение изоморфизма групп.</h4>
+
+<p>Если <script type="math/tex" id="MathJax-Element-205">(G, *)</script>, <script type="math/tex" id="MathJax-Element-206">(H, \cdot )</script> — группы, то изоморфизм — такая <em>биекция</em> <script type="math/tex" id="MathJax-Element-207">f: G \rightarrow H</script>, что</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-208">
+f(a * b) = f(a) \cdot f(b).
+</script></p>
+
+
+
+<h4 id="18-сколько-существует-циклических-групп-одного-порядка-с-точностью-до-изоморфизма">18. Сколько существует циклических групп одного порядка, с точностью до изоморфизма?</h4>
+
+<p>Одна.</p>
+
+
+
+<h4 id="19-сформулировать-теорему-кэли">19. Сформулировать теорему Кэли.</h4>
+
+<p>Любая конечная группа изоморфна подгруппе группы подстановок.</p>
+
+
+
+<h4 id="20-дать-определение-гомоморфизма-групп-что-такое-ядро-гомоморфизма-групп">20. Дать определение гомоморфизма групп. Что такое ядро гомоморфизма групп?</h4>
+
+<p>Если <script type="math/tex" id="MathJax-Element-209">(G, *)</script>, <script type="math/tex" id="MathJax-Element-210">(H, \cdot )</script> — группы, то изоморфизм — такое отображение <script type="math/tex" id="MathJax-Element-211">f: G \rightarrow H</script>, что</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-212">
+f(a * b) = f(a) \cdot f(b).
+</script></p>
+
+<p>Тогда ядро гомоморфизма — это</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-213">
+\text{Ker} f = \{g \in G | f(g) = e\},
+</script></p>
+
+<p>где <script type="math/tex" id="MathJax-Element-214">e</script> - нейтральный элемент группы <script type="math/tex" id="MathJax-Element-215">H</script>.</p>
+
+<p>Прим.: в отличие от изоморфизма, тут отображение не биективное, а там биективное.</p>
+
+
+
+<h4 id="21-что-такое-группа-диэдра-что-такое-знакопеременная-группа">21. Что такое группа диэдра? Что такое знакопеременная группа?</h4>
+
+<p>Группа диэдра <script type="math/tex" id="MathJax-Element-216">D_n</script> — группа симметрий правильного <script type="math/tex" id="MathJax-Element-217">n</script>-угольника.</p>
+
+<p>Знакопеременная группа <script type="math/tex" id="MathJax-Element-218">A_n</script> — подгруппа симметрической группы <script type="math/tex" id="MathJax-Element-219">S_n</script>, содержащая только четные перестановки.</p>
+
+
+
+<h4 id="22-дать-определение-левого-смежного-класса-по-некоторои-подгруппе">22. Дать определение левого смежного класса по некоторой подгруппе.</h4>
+
+<p>Если <script type="math/tex" id="MathJax-Element-220">H</script> — подгруппа группы <script type="math/tex" id="MathJax-Element-221">G</script>, то левый смежный класс по подгруппе <script type="math/tex" id="MathJax-Element-222">H</script> определяется как</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-223">
+gH = \{gh | h \in H\}.
+</script></p>
+
+
+
+<h4 id="23-дать-определение-нормальнои-подгруппы-что-такое-индекс-подгруппы">23. Дать определение нормальной подгруппы. Что такое индекс подгруппы?</h4>
+
+<p>Нормальная подгруппа — такая подгруппа, левый и правый и правый смежные классы которой совпадают.</p>
+
+<p>Индекс подгруппы <script type="math/tex" id="MathJax-Element-224">H</script> группы <script type="math/tex" id="MathJax-Element-225">G</script> — число смежных классов (левых или правых, безразлично) группы <script type="math/tex" id="MathJax-Element-226">G</script> по <script type="math/tex" id="MathJax-Element-227">H</script>. Обозначается <script type="math/tex" id="MathJax-Element-228">|G : H|</script>.</p>
+
+
+
+<h4 id="24-сформулировать-теорему-лагранжа">24. Сформулировать теорему Лагранжа.</h4>
+
+<p>Если <script type="math/tex" id="MathJax-Element-229">G</script> — конечная группа, <script type="math/tex" id="MathJax-Element-230">H</script> — ее подгруппа, то</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-231">
+|G| = |G : H| |H|.
+</script></p>
+
+
+
+<h4 id="25-дать-определение-факторгруппы">25. Дать определение факторгруппы.</h4>
+
+<p>Факторгруппа группы <script type="math/tex" id="MathJax-Element-232">G</script> по подгруппе <script type="math/tex" id="MathJax-Element-233">H</script> — группа смежных классов <script type="math/tex" id="MathJax-Element-234">G</script> по <script type="math/tex" id="MathJax-Element-235">H</script>. Обозначается <script type="math/tex" id="MathJax-Element-236">G/H</script></p>
+
+
+
+<h4 id="26-сформулировать-теорему-о-гомоморфизме-групп">26. Сформулировать теорему о гомоморфизме групп.</h4>
+
+<p>Пусть <script type="math/tex" id="MathJax-Element-237">f: G \rightarrow H</script> — гомоморфизм групп. Тогда</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-238">
+\text{Im} f \simeq G/\text{Ker}f.
+</script></p>
+
+<p>Иными словами, имеется изоморфизм</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-239">
+\phi: \text{Im} f \rightarrow G / \text{Ker} f,
+</script></p>
+
+<p>ставящий в соответствие элементу <script type="math/tex" id="MathJax-Element-240">h = f(g) \in \text{Im}f</script> смежный класс <script type="math/tex" id="MathJax-Element-241">g \text{Ker}f</script>.</p>
+
+
+
+<h4 id="27-дать-определение-кольца">27. Дать определение кольца.</h4>
+
+<p>Кольцо <script type="math/tex" id="MathJax-Element-242">(R, +, *)</script> — алгебраическая структура такая, что <script type="math/tex" id="MathJax-Element-243">(R, +)</script> — абелева группа, <script type="math/tex" id="MathJax-Element-244">(R, *)</script> — полугруппа и выполняется свойство дистрибутивности операции <script type="math/tex" id="MathJax-Element-245">*</script> относительно <script type="math/tex" id="MathJax-Element-246">+</script>:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-247">
+\begin{cases}
+a * (b + c) = a * b + a * c \\
+(a + b) * c = a * c + b * c.
+\end{cases}
+</script></p>
+
+
+
+<h4 id="28-что-такое-кольцо-вычетов">28. Что такое кольцо вычетов?</h4>
+
+<p>Кольцо вычетов <script type="math/tex" id="MathJax-Element-248">\mathbb{Z}_n</script> — это кольцо, состоящее из множества целых чисел от <script type="math/tex" id="MathJax-Element-249">0</script> до <script type="math/tex" id="MathJax-Element-250">n - 1</script> с операциями сложения и умножения по модулю <script type="math/tex" id="MathJax-Element-251">n</script>.</p>
+
+
+
+<h4 id="29-даите-определение-делителеи-нуля">29. Дайте определение делителей нуля.</h4>
+
+<p>Это такие два элемента <script type="math/tex" id="MathJax-Element-252">a, b</script> некоторого кольца, что <script type="math/tex" id="MathJax-Element-253">ab = 0</script>.</p>
+
+<p>Прим.: <script type="math/tex" id="MathJax-Element-254">0</script> — нейтральный элемент относительно сложения.</p>
+
+
+
+<h4 id="30-даите-определение-целостного-кольца-приведите-пример">30. Дайте определение целостного кольца. Приведите пример.</h4>
+
+<p>Кольцо с единицей без делителей нуля с коммутативной операцией умножения.</p>
+
+<p>Пример: <script type="math/tex" id="MathJax-Element-255">\mathbb{Z}</script> — обычное кольцо целых чисел?</p>
+
+
+
+<h4 id="31-даите-определение-поля-привести-три-примера">31. Дайте определение поля. Привести три примера.</h4>
+
+<p>Поле <script type="math/tex" id="MathJax-Element-256">(F, +, *)</script> — алгебраическая структура такая, что <script type="math/tex" id="MathJax-Element-257">(F, +)</script> — абелева группа с нейтральным элементом <script type="math/tex" id="MathJax-Element-258">\mathbf{0}</script> и <script type="math/tex" id="MathJax-Element-259">(F \backslash \{\mathbf{0}\}, *)</script> — абелева группа.</p>
+
+<p>Примеры:</p>
+
+<ul>
+<li><script type="math/tex" id="MathJax-Element-260">\mathbb{Q}</script> — рациональные числа;</li>
+<li><script type="math/tex" id="MathJax-Element-261">\mathbb{R}</script> — вещественные числа;</li>
+<li><script type="math/tex" id="MathJax-Element-262">\mathbb{Z}_p</script> — поле вычетов по простому <script type="math/tex" id="MathJax-Element-263">p</script>.</li>
+</ul>
+
+
+
+<h4 id="32-даите-определение-подполя-привести-пример-пары-поле-и-его-собственное-подполе">32. Дайте определение подполя. Привести пример пары: поле и его собственное подполе.</h4>
+
+<p>Подмножество <script type="math/tex" id="MathJax-Element-264">L</script> поля <script type="math/tex" id="MathJax-Element-265">F</script> называется подполем, если операции замкнуты относительно <script type="math/tex" id="MathJax-Element-266">L</script> и <script type="math/tex" id="MathJax-Element-267">L</script> — тоже поле.</p>
+
+<p>Пример: <script type="math/tex" id="MathJax-Element-268">\mathbb{Q}</script> — собственное подполе поля <script type="math/tex" id="MathJax-Element-269">\mathbb{R}</script>.</p>
+
+<blockquote>
+  <p>Прим. г.: я так понял, что это то же другими, более пригодными для дальнейших доказательств словами, но в Винберге оно определяется так:</p>
+  
+  <p><script type="math/tex" id="MathJax-Element-270">1)</script> Подмножество <script type="math/tex" id="MathJax-Element-271">L</script> кольца <script type="math/tex" id="MathJax-Element-272">K</script> называется подкольцом, если</p>
+  
+  <ul>
+  <li><script type="math/tex" id="MathJax-Element-273">(L, +)</script> — подгруппа <script type="math/tex" id="MathJax-Element-274">(K, +)</script>;</li>
+  <li><script type="math/tex" id="MathJax-Element-275">L</script> замкнуто относительно умножения.</li>
+  </ul>
+  
+  <p><script type="math/tex" id="MathJax-Element-276">2)</script> Подмножество <script type="math/tex" id="MathJax-Element-277">L</script> поля <script type="math/tex" id="MathJax-Element-278">K</script> называется подполем, если</p>
+  
+  <ul>
+  <li><script type="math/tex" id="MathJax-Element-279">L</script> — подкольцо кольца <script type="math/tex" id="MathJax-Element-280">K</script>;</li>
+  <li><script type="math/tex" id="MathJax-Element-281">a \in L, a \neq 0 \Rightarrow a^{-1} \in L</script>;</li>
+  <li><script type="math/tex" id="MathJax-Element-282">1 \in L</script>.</li>
+  </ul>
+</blockquote>
+
+
+
+<h4 id="33-даите-определение-характеристики-поля-привести-примеры-поля-конечнои-положительнои-характеристики-и-поля-нулевои-характеристики">33. Дайте определение характеристики поля. Привести примеры: поля конечной положительной характеристики и поля нулевой характеристики.</h4>
+
+<p>Характеристика поля — наименьшее натуральное число <script type="math/tex" id="MathJax-Element-283">n</script> такое, что выполняется равенство</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-284">
+\underbrace{1 + \dots + 1}_n = 0.
+</script></p>
+
+<p>Если такого <script type="math/tex" id="MathJax-Element-285">n</script> не существует, то говорят, что поле нулевой характеристики.</p>
+
+<p>Примеры:</p>
+
+<ul>
+<li><script type="math/tex" id="MathJax-Element-286">\mathbb{Z}_n</script> — поле характеристики <script type="math/tex" id="MathJax-Element-287">n</script>;</li>
+<li><script type="math/tex" id="MathJax-Element-288">\mathbb{R}</script> — поле нулевой характеристики.</li>
+</ul>
+
+
+
+<h4 id="34-даите-определение-евклидова-кольца">34. Дайте определение евклидова кольца.</h4>
+
+<p>Евклидово кольцо — такое целостное кольцо <script type="math/tex" id="MathJax-Element-289">R</script>, в котором определена евклидова норма <script type="math/tex" id="MathJax-Element-290">d: R \rightarrow \mathbb{N}_0</script> такая, что возможно деление с остатком, меньшим делителя по этой норме. Т.е. для любых <script type="math/tex" id="MathJax-Element-291">a, b \in R, b \neq 0</script> существует представление <script type="math/tex" id="MathJax-Element-292">a = bq + r</script>, где <script type="math/tex" id="MathJax-Element-293">d(r) < d(b)</script> или <script type="math/tex" id="MathJax-Element-294">r = 0</script>.</p>
+
+
+
+<h4 id="35-опишите-алгоритм-евклида-нахождения-наибольшего-общего-делителя-в-евклидовом-кольце">35. Опишите алгоритм Евклида нахождения наибольшего общего делителя в евклидовом кольце.</h4>
+
+<p>Для нахождения наибольшего общего делителя элементов <script type="math/tex" id="MathJax-Element-295">a</script> и <script type="math/tex" id="MathJax-Element-296">b</script> евклидова кольца разделим <script type="math/tex" id="MathJax-Element-297">a</script> на <script type="math/tex" id="MathJax-Element-298">b</script>, затем <script type="math/tex" id="MathJax-Element-299">b</script> на полученный остаток, затем первый остаток на второй остаток и т. д.:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-300">
+a = q_1 b + r_1, \\
+b = q_2 r_1 + r_2, \\
+r_1 = q_3 r_2 + r_3 \\
+\vdots \\
+r_{n-1} = q_{n+1} r_n.
+</script></p>
+
+<p>Так как нормы остатков убывают, в конце концов произойдет деление без остатка. Последний ненулевой остаток <script type="math/tex" id="MathJax-Element-301">r_n</script> — и есть НОД.</p>
+
+
+
+<h4 id="36-даите-определение-идеала">36. Дайте определение идеала.</h4>
+
+<p>Идеал кольца <script type="math/tex" id="MathJax-Element-302">R</script> — такое подкольцо <script type="math/tex" id="MathJax-Element-303">I</script> кольца <script type="math/tex" id="MathJax-Element-304">R</script>, что</p>
+
+<ul>
+<li><script type="math/tex" id="MathJax-Element-305">i \in I, r \in R \Rightarrow ir \in I</script> (<strong>правый</strong> идеал);</li>
+<li><script type="math/tex" id="MathJax-Element-306">i \in I, r \in R \Rightarrow ri \in I</script> (<strong>левый</strong> идеал);</li>
+<li>или и то, и другое (двусторонний).</li>
+</ul>
+
+
+
+<h4 id="37-сформулируите-теорему-о-гомоморфизме-колец">37. Сформулируйте теорему о гомоморфизме колец.</h4>
+
+<p>Пусть <script type="math/tex" id="MathJax-Element-307">f: A \rightarrow B</script> — гомоморфизм колец. Тогда</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-308">
+\text{Im} f \simeq A / \text{Ker} f.
+</script></p>
+
+<p>Иными словами, имеется изоморфизм</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-309">
+\phi: \text{Im} f \rightarrow A / \text{Ker} f,
+</script></p>
+
+<p>ставящий в соответствие каждому элементу <script type="math/tex" id="MathJax-Element-310">b = f(a) \in \text{Im} f</script> смежный класс <script type="math/tex" id="MathJax-Element-311">\pi(a) = a + \text{Ker} f</script>.</p>
+
+
+
+<h2 id="5-линейные-пространства">5. Линейные пространства.</h2>
+
+
+
+<h4 id="1-даите-определение-линеиного-векторного-пространства">1. Дайте определение линейного (векторного) пространства.</h4>
+
+<p>Векторное пространство <script type="math/tex" id="MathJax-Element-312">V</script> над полем <script type="math/tex" id="MathJax-Element-313">F</script> — набор элементов-векторов <script type="math/tex" id="MathJax-Element-314">V</script>, для которого определено сложение векторов и умножение вектора на скаляр, удовлетворяющие следующим свойствам (<script type="math/tex" id="MathJax-Element-315">\forall \mathbf{x}, \mathbf{y}, \mathbf{z} \in V \; \forall \alpha, \beta \in F</script>):</p>
+
+<ul>
+<li><script type="math/tex" id="MathJax-Element-316">\mathbf{x} + \mathbf{y} = \mathbf{y} + \mathbf{x}</script>;</li>
+<li><script type="math/tex" id="MathJax-Element-317">\mathbf{x} + (\mathbf{y} + \mathbf{z}) = (\mathbf{x} + \mathbf{y}) + \mathbf{z}</script>;</li>
+<li><script type="math/tex" id="MathJax-Element-318">\exists \mathbf{0} \in V: \mathbf{0} + \mathbf{x} = \mathbf{x}</script>;</li>
+<li><script type="math/tex" id="MathJax-Element-319">\forall \mathbf{x} \; \exists -\mathbf{x}: \mathbf{x} + (- \mathbf{x}) = \mathbf{0}</script>;</li>
+<li><script type="math/tex" id="MathJax-Element-320">\alpha (\beta \mathbf{x}) = (\alpha \beta) \mathbf{x}</script>;</li>
+<li><script type="math/tex" id="MathJax-Element-321">1 \mathbf{x} = \mathbf{x}</script>;</li>
+<li><script type="math/tex" id="MathJax-Element-322">(\alpha + \beta) x = \alpha \mathbf{x} + \beta \mathbf{x}</script>;</li>
+<li><script type="math/tex" id="MathJax-Element-323">\alpha (\mathbf{x} + \mathbf{y}) = \alpha \mathbf{x} + \alpha \mathbf{y}</script>.</li>
+</ul>
+
+
+
+<h4 id="2-даите-определение-базиса">2. Дайте определение базиса.</h4>
+
+<p>Базис пространства <script type="math/tex" id="MathJax-Element-324">V</script> — это</p>
+
+<ul>
+<li>набор таких векторов из <script type="math/tex" id="MathJax-Element-325">V</script>, что любой вектор из <script type="math/tex" id="MathJax-Element-326">V</script> можно выразить через векторы этого набора;</li>
+<li>набор из <script type="math/tex" id="MathJax-Element-327">\text{Dim} V</script> линейно независимых векторов;</li>
+</ul>
+
+
+
+<h4 id="3-даите-определение-размерности-пространства">3. Дайте определение размерности пространства.</h4>
+
+<p>Максимальное количество линейно независимых векторов в этом пространстве.</p>
+
+
+
+<h4 id="4-даите-определение-матрицы-перехода-от-старого-базиса-к-новому">4. Дайте определение матрицы перехода от старого базиса к новому.</h4>
+
+<p>Если <script type="math/tex" id="MathJax-Element-328">(e_1, \dots, e_n)</script> — старый базис, <script type="math/tex" id="MathJax-Element-329">(e'_1, \dots, e'_n)</script> — новый и</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-330">
+e'_1 = a_{11} e_1 + \dots + a_{1n} e_n \\
+e'_2 = a_{21} e_1 + \dots + a_{2n} e_n \\
+\vdots \\
+e'_n = a_{n1} e_1 + \dots + a_{nn} e_n,
+</script></p>
+
+<p>то матрица перехода от старого к новому записывается как матрица, где координаты векторов нового базиса записаны в старом базисе по столбцам:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-331">
+T = \begin{pmatrix}
+a_{11} & \dots & a_{n1} \\
+\vdots & \ddots & \vdots \\
+a_{1n} & \dots & a_{nn}
+\end{pmatrix}.
+</script></p>
+
+
+
+<h4 id="5-выпишите-формулу-для-описания-изменения-координат-вектора-при-изменении-базиса">5. Выпишите формулу для описания изменения координат вектора при изменении базиса.</h4>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-332">
+X_{e'} = T^{-1}_{e \rightarrow e'} X_e.
+</script></p>
+
+
+
+<h4 id="6-как-меняется-матрица-перехода-при-двух-последовательных-переходах-между-базисами">6. Как меняется матрица перехода при двух последовательных переходах между базисами?</h4>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-333">
+T_{h \rightarrow y} = T_{h \rightarrow u} T_{u \rightarrow y}.
+</script></p>
+
+
+
+<h4 id="7-даите-определение-подпространства-в-линеином-пространстве">7. Дайте определение подпространства в линейном пространстве.</h4>
+
+<p>Помножество линейного пространства, которое тоже линейное пространство.</p>
+
+<blockquote>
+  <p>Более компактное с точки зрения утверждений, но более громоздкое с точки зрения слов определение: подмножество линейного пространства, которое является подгруппой относительно сложения векторов и замкнуто относительно умножения на скаляр.</p>
+</blockquote>
+
+
+
+<h4 id="8-даите-определения-линеинои-оболочки-конечного-набора-векторов-и-ранга-системы-векторов">8. Дайте определения линейной оболочки конечного набора векторов и ранга системы векторов.</h4>
+
+<p>Линейная оболочка набора векторов — множество всех линейных комбинаций этих векторов.</p>
+
+<p>Ранг системы векторов — размерность их линейной оболочки.</p>
+
+
+
+<h4 id="9-даите-определение-изоморфизма-линеиных-пространств">9. Дайте определение изоморфизма линейных пространств.</h4>
+
+<p>Если <script type="math/tex" id="MathJax-Element-334">V</script>, <script type="math/tex" id="MathJax-Element-335">W</script> — линейные пространства, то изоморфизм — это такая биекция <script type="math/tex" id="MathJax-Element-336">f: V \rightarrow W</script>:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-337">
+f(\alpha \mathbf{u} + \beta \mathbf{v}) = \alpha f(\mathbf{u} + \beta f(\mathbf{v}).
+</script></p>
+
+
+
+<h4 id="10-даите-определения-суммы-и-прямои-суммы-подпространств">10. Дайте определения суммы и прямой суммы подпространств.</h4>
+
+<p>Если <script type="math/tex" id="MathJax-Element-338">V</script>, <script type="math/tex" id="MathJax-Element-339">W</script> — подпространства, то их сумма записывается как</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-340">
+V + W = {v + w | v \in V, w \in W}.
+</script></p>
+
+<p>Прямая сумма — сумма таких подпространств, для которых пересечение состоит только из нулевого вектора.</p>
+
+
+
+<h4 id="11-сформулируите-утверждение-о-связи-размерности-суммы-и-пересечения-подпространств">11. Сформулируйте утверждение о связи размерности суммы и пересечения подпространств.</h4>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-341">
+\text{Dim} \; U + V = \text{Dim} \; U + \text{Dim} \; V - \text{Dim} \; U \cap V.
+</script></p>
+
+
+
+<h2 id="6-линейные-операторы">6. Линейные операторы.</h2>
+
+
+
+<h4 id="1-дайте-определение-линейного-оператора-приведите-пример">1. Дайте определение линейного оператора. Приведите пример.</h4>
+
+<p>Пусть <script type="math/tex" id="MathJax-Element-342">V</script>, <script type="math/tex" id="MathJax-Element-343">W</script> — линейные пространства над одним и тем же полем. Тогда линейный оператор — это такое отображение <script type="math/tex" id="MathJax-Element-344">f: V \rightarrow W</script>, что</p>
+
+<ul>
+<li><script type="math/tex" id="MathJax-Element-345">f(\mathbf{u} + \mathbf{v}) = f(\mathbf{u}) + f(\mathbf{v})</script>;</li>
+<li><script type="math/tex" id="MathJax-Element-346">f(\lambda \mathbf{v}) = \lambda f(\mathbf{v})</script>.</li>
+</ul>
+
+
+
+<h4 id="2-даите-определение-матрицы-линеиного-оператора">2. Дайте определение матрицы линейного оператора.</h4>
+
+<p>Пусть для пространств <script type="math/tex" id="MathJax-Element-347">V</script>, <script type="math/tex" id="MathJax-Element-348">W</script> заданы базисы <script type="math/tex" id="MathJax-Element-349">(v_1, \dots, v_n)</script>, <script type="math/tex" id="MathJax-Element-350">(w_1, \dots, w_m)</script>. Тогда каждый вектор из <script type="math/tex" id="MathJax-Element-351">\text{Im} f \subseteq W</script> является линейной комбинацией векторов</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-352">
+f(v_1) = a_{11} w_1 + \dots + a_{m1} w_m \\
+\vdots
+f(v_n) = a_{1n} w_1 + \dots + a_{mn} w_m.
+</script></p>
+
+<p>Матрица линейного оператора относительно базисов <script type="math/tex" id="MathJax-Element-353">(v_1, \dots, v_n)</script>, <script type="math/tex" id="MathJax-Element-354">(w_1, \dots, w_m)</script> записывается как</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-355">
+M = \begin{pmatrix}
+a_{11} & \dots & a_{1n} \\
+\vdots & \ddots & \vdots \\ 
+a_{m1} & \dots & a_{mn}
+\end{pmatrix}.
+</script></p>
+
+
+
+<h4 id="3-сформулируите-теорему-о-том-что-деиствие-линеиного-оператора-в-конечномерном-пространстве-полностью-определяется-матрицеи-линеиного-оператора">3. Сформулируйте теорему о том, что действие линейного оператора в конечномерном пространстве полностью определяется матрицей линейного оператора.</h4>
+
+<p>Ок.</p>
+
+
+
+<h4 id="4-выпишите-формулу-для-преобразования-матрицы-оператора-при-замене-базиса">4. Выпишите формулу для преобразования матрицы оператора при замене базиса.</h4>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-356">
+A_{e'} = T^{-1}_{e \rightarrow e'} A_e T_{e \rightarrow e'}.
+</script></p>
+
+
+
+<h4 id="5-сформулируите-определения-ядра-и-образа-линеиного-оператора">5. Сформулируйте определения ядра и образа линейного оператора.</h4>
+
+<p>Для оператора <script type="math/tex" id="MathJax-Element-357">f: V \rightarrow W</script> ядро:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-358">
+\text{Ker} f = \{v \in V | f(v) = 0\},
+</script></p>
+
+<p>образ:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-359">
+\text{Im} f = \{f(v) | v \in V\} \subseteq W.
+</script></p>
+
+
+
+<h4 id="6-сформулируите-утверждение-о-связи-размерностеи-ядра-и-образа-линеиного-оператора">6. Сформулируйте утверждение о связи размерностей ядра и образа линейного оператора.</h4>
+
+<p>Для оператора <script type="math/tex" id="MathJax-Element-360">f: V \rightarrow W</script>:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-361">
+\dim \text{Ker} f + \dim \text{Im} f = \dim V.
+</script></p>
+
+
+
+<h4 id="7-даите-определения-собственного-вектора-и-собственного-значения-линеиного-оператора">7. Дайте определения собственного вектора и собственного значения линейного оператора.</h4>
+
+<p>Собственный вектор оператора — вектор, который при умножении на данный оператор переходит в коллинеарный.</p>
+
+<p>Если <script type="math/tex" id="MathJax-Element-362">\mathbf{x}</script> — собственный вектор оператора <script type="math/tex" id="MathJax-Element-363">A</script> и</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-364">
+A \mathbf{x} = \lambda x,
+</script></p>
+
+<p>то <script type="math/tex" id="MathJax-Element-365">\lambda</script> называются собственным значением, соответствующим собственному вектору <script type="math/tex" id="MathJax-Element-366">\mathbf{x}</script>.</p>
+
+
+
+<h4 id="8-даите-определение-собственного-подпространства">8. Дайте определение собственного подпространства.</h4>
+
+<p>Множество собственных векторов, соответствующих одному и тому же собственному значению.</p>
+
+
+
+<h4 id="9-даите-определения-характеристического-уравнения-и-характеристического-многочлена-квадратнои-матрицы">9. Дайте определения характеристического уравнения и характеристического многочлена квадратной матрицы.</h4>
+
+<p>Характеристический многочлен:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-367">
+\chi_A(\lambda) = det(\lambda E - A),
+</script></p>
+
+<p>Характеристическое уравнение:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-368">
+\chi_A(\lambda) = 0.
+</script></p>
+
+
+
+<h4 id="10-сформулируите-утверждение-о-связи-характеристического-уравнения-и-спектра-оператора">10. Сформулируйте утверждение о связи характеристического уравнения и спектра оператора.</h4>
+
+<p>Спектр — множество собственных значений оператора с их геометрическими кратностями. Т. к. <script type="math/tex" id="MathJax-Element-369">ГК \leq АК</script>, спектр — подмножество множества корней характеристического уравнения.</p>
+
+
+
+<h4 id="11-даите-определения-алгебраическои-и-геометрическои-кратности-собственного-значения-какое-неравенство-их-связывает">11. Дайте определения алгебраической и геометрической кратности собственного значения. Какое неравенство их связывает?</h4>
+
+<p>Алгебраическая кратность — кратность собственного значения как корня характеристического уравнения.</p>
+
+<p>Геометрическая кратность — размерность собственного подпространства, соответствующего данному собственному значению.</p>
+
+<p>Геометрическая кратность не превосходит алгебраическую.</p>
+
+
+
+<h4 id="12-даите-определение-следа-матрицы-как-меняется-след-матрицы-оператора-при-замене-базиса">12. Дайте определение следа матрицы. Как меняется след матрицы оператора при замене базиса?</h4>
+
+<p>След матрицы — это сумма элементов на ее диагонали.</p>
+
+<p>При замене базиса след не меняется.</p>
+
+
+
+<h4 id="13-каким-своиством-обладают-собственные-векторы-линеиного-оператора-отвечающие-различным-собственным-значениям">13. Каким свойством обладают собственные векторы линейного оператора, отвечающие различным собственным значениям?</h4>
+
+<p>Они линейно независимы.</p>
+
+
+
+<h4 id="14-сформулируите-критерии-диагональности-матрицы-оператора">14. Сформулируйте критерий диагональности матрицы оператора.</h4>
+
+<p>Дело происходит в базисе собственных векторов этого оператора.</p>
+
+
+
+<h4 id="15-сформулируите-критерии-диагонализируемости-матрицы-оператора-с-использованием-понятия-геометрическои-кратности">15. Сформулируйте критерий диагонализируемости матрицы оператора с использованием понятия геометрической кратности.</h4>
+
+<p>Для всех собственных значений геометрическая крастность равна алгебраической.</p>
+
+
+
+<h4 id="16-даите-определение-жордановои-клетки-сформулируите-теорему-о-жордановои-нормальнои-форме-матрицы-оператора">16. Дайте определение жордановой клетки. Сформулируйте теорему о жордановой нормальной форме матрицы оператора.</h4>
+
+<p>Жорданова клетка порядка <script type="math/tex" id="MathJax-Element-370">k</script>, соответствующая собственному значению <script type="math/tex" id="MathJax-Element-371">\lambda</script> — это матрица <script type="math/tex" id="MathJax-Element-372">k \times k</script>, у которой элементы на главной диагонали равны <script type="math/tex" id="MathJax-Element-373">\lambda</script>, элементы выше главной диагонали равны <script type="math/tex" id="MathJax-Element-374">1</script>, а остальные элементы нулевые:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-375">
+J_k(\lambda) = \begin{pmatrix}
+\lambda & 1 & 0 & \dots & 0 \\
+0 & \lambda & 1 & \dots & 0 \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+0 & 0 & 0 & \dots & \lambda
+\end{pmatrix}.
+</script></p>
+
+<p>Жорданов блок, соответствующий собственному значению <script type="math/tex" id="MathJax-Element-376">\lambda</script> — это блочно-диагональная матрица, состоящая из жордановых клеток порядков <script type="math/tex" id="MathJax-Element-377">i_1, \dots, i_s</script>, где <script type="math/tex" id="MathJax-Element-378">s</script> — геометрическая кратность <script type="math/tex" id="MathJax-Element-379">\lambda</script>, а <script type="math/tex" id="MathJax-Element-380">i_1 + \dots + i_s = m</script>, где <script type="math/tex" id="MathJax-Element-381">m</script> — алгебраическая кратность <script type="math/tex" id="MathJax-Element-382">\lambda</script>:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-383">
+A(\lambda) = \begin{pmatrix}
+\boxed{J_{i_1}} & & \\
+ & \ddots & \\
+ & & \boxed{J_{i_s}}
+\end{pmatrix}.
+</script></p>
+
+<p>Теорема: существует базис, состоящий из собственных и присоединенных векторов, в котором матрица имеет жорданову нормальную форму:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-384">
+A' = \begin{pmatrix}
+\boxed{A(\lambda_1)} & & \\
+& \ddots & \\
+& & \boxed{A(\lambda_p)},
+\end{pmatrix}
+</script></p>
+
+<p>где <script type="math/tex" id="MathJax-Element-385">A(\lambda_i)</script> — жорданов блок, соответствующий собственному значению <script type="math/tex" id="MathJax-Element-386">\lambda_i</script>.</p>
+
+
+
+<h2 id="7-евклидовы-пространства">7. Евклидовы пространства.</h2>
+
+
+
+<h4 id="1-даите-определение-евклидова-пространства">1. Дайте определение евклидова пространства.</h4>
+
+<p>Евклидово пространство — это линейное пространство над полем <script type="math/tex" id="MathJax-Element-387">R</script> с со скалярным произведением таким, что:</p>
+
+<ul>
+<li><script type="math/tex" id="MathJax-Element-388">(\mathbf{u}, \mathbf{v}) = (\mathbf{v}, \mathbf{u})</script>;</li>
+<li><script type="math/tex" id="MathJax-Element-389">(\mathbf{u} + \mathbf{v}, \mathbf{w}) = (\mathbf{u}, \mathbf{w}) + (\mathbf{v}, \mathbf{w})</script>;</li>
+<li><script type="math/tex" id="MathJax-Element-390">(\alpha \mathbf{u}, \mathbf{v}) = \alpha (\mathbf{u}, \mathbf{v})</script>;</li>
+<li><script type="math/tex" id="MathJax-Element-391">(\mathbf{v}, \mathbf{v}) > 0</script>, если <script type="math/tex" id="MathJax-Element-392">\mathbf{v} \neq \mathbf{0}</script>, и <script type="math/tex" id="MathJax-Element-393">(\mathbf{v}, \mathbf{v}) = 0</script>, если <script type="math/tex" id="MathJax-Element-394">\mathbf{v} = \mathbf{0}</script>.</li>
+</ul>
+
+
+
+<h4 id="2-выпишите-неравенство-коши-буняковского">2. Выпишите неравенство Коши-Буняковского.</h4>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-395">
+| (\mathbf{x}, \mathbf{y}) | \leq \lVert \mathbf{x} \rVert \lVert \mathbf{y} \rVert.
+</script></p>
+
+
+
+<h4 id="3-даите-определения-ортогонального-и-ортонормированного-базисов">3. Дайте определения ортогонального и ортонормированного базисов.</h4>
+
+<p>Базис <script type="math/tex" id="MathJax-Element-396">(e_1, \dots, e_n)</script>:</p>
+
+<ul>
+<li>ортогонален, если <script type="math/tex" id="MathJax-Element-397">i \neq j \Rightarrow (e_i, e_j) = 0</script>;</li>
+<li>ортонормирован, если в добавок к этому <script type="math/tex" id="MathJax-Element-398">\forall i \; |e_i| = 1</script>.</li>
+</ul>
+
+
+
+<h4 id="4-опишите-алгоритм-ортогонализации-грама-шмидта">4. Опишите алгоритм ортогонализации Грама-Шмидта.</h4>
+
+<p>Дан набор векторов <script type="math/tex" id="MathJax-Element-399">(a_1, \dots, a_n)</script>. Получим набор ортогональных векторов <script type="math/tex" id="MathJax-Element-400">(b_1, \dots, b_m)</script>.</p>
+
+<p>Для этого на <script type="math/tex" id="MathJax-Element-401">i</script>-м шаге будем брать вектор <script type="math/tex" id="MathJax-Element-402">a_i</script>, отнимать от него его ортогональные проекции на все вектора <script type="math/tex" id="MathJax-Element-403">\widetilde{b_1}, \dots, \widetilde{b_{i-1}}</script> и называть результат результат этот операции <script type="math/tex" id="MathJax-Element-404">\widetilde{b_i}</script>.</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-405">
+\begin{matrix}
+\widetilde{b_1} &=& a_1 \\
+\widetilde{b_2} &=& a_2 - \widetilde{b_1} \frac{(a_2, \widetilde{b_1})}{(\widetilde{b_1}, \widetilde{b_1})} \\
+& \vdots & \\
+\widetilde{b_n} &=& a_n - \widetilde{b_1} \frac{(a_n, \widetilde{b_1})}{(\widetilde{b_1}, \widetilde{b_1})} - \dots - \widetilde{b_{n-1}} \frac{(a_n, \widetilde{b_{n-1}})}{(\widetilde{b_{n-1}}, \widetilde{b_{n-1}})}.
+\end{matrix}
+</script></p>
+
+<p>В случае, если среди векторов <script type="math/tex" id="MathJax-Element-406">a_1, \dots, a_n</script> были линейно зависимые, среду векторов <script type="math/tex" id="MathJax-Element-407">\widetilde{b_1}, \dots, \widetilde{b_n}</script> окажутся нулевые. Выберем из этого набора ненулевые вектора и назовем их <script type="math/tex" id="MathJax-Element-408">b_1, \dots, b_m</script>. Вот!</p>
+
+
+
+<h4 id="5-даите-определение-матрицы-грама">5. Дайте определение матрицы Грама.</h4>
+
+<p>Матрица грама системы векторов <script type="math/tex" id="MathJax-Element-409">(e_1, \dots, e_n)</script> — матрица всевозможных попарных скалярных произведений этих векторов:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-410">
+\Gamma = \begin{pmatrix}
+(e_1, e_1) & \dots & (e_1, e_n) \\
+\vdots & \ddots & \vdots \\
+(e_n, e_1) & \dots & (e_n, e_n)
+\end{pmatrix}.
+</script></p>
+
+
+
+<h4 id="6-сформулируите-критерии-линеинои-зависимости-с-помощью-матрицы-грама">6. Сформулируйте критерий линейной зависимости с помощью матрицы Грама.</h4>
+
+<p>Система векторов линейно зависима тогда и только тогда, когда матрица Грама линейно зависима.</p>
+
+
+
+<h4 id="7-выпишите-формулу-для-преобразования-матрицы-грама-при-переходе-к-новому-базису">7. Выпишите формулу для преобразования матрицы Грама при переходе к новому базису.</h4>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-411">
+\Gamma_{e'} = T^T_{e \rightarrow e'} \Gamma_e T_{e \rightarrow e'}.
+</script></p>
+
+
+
+<h4 id="8-даите-определение-ортогонального-дополнения">8. Дайте определение ортогонального дополнения.</h4>
+
+<p>Ортогональное дополнение <script type="math/tex" id="MathJax-Element-412">U^{\perp}</script> подпространства <script type="math/tex" id="MathJax-Element-413">U \subseteq V</script> — множество всех векторов <script type="math/tex" id="MathJax-Element-414">\mathbf{x} \in V</script>, ортогональным подпространству <script type="math/tex" id="MathJax-Element-415">U</script>.</p>
+
+
+
+<h4 id="9-даите-определения-ортогональнои-проекции-вектора-на-подпространство-и-ортогональнои-составляющеи">9. Дайте определения ортогональной проекции вектора на подпространство и ортогональной составляющей.</h4>
+
+<p>Так как для <script type="math/tex" id="MathJax-Element-416">U \subseteq V</script> сумма <script type="math/tex" id="MathJax-Element-417">U \oplus U^\perp</script> прямая, любой вектор <script type="math/tex" id="MathJax-Element-418">\mathbf{x} \in V</script> однозначно выражается в виде:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-419">
+\mathbf{x} = \mathbf{u} + \mathbf{v},
+</script></p>
+
+<p>где <script type="math/tex" id="MathJax-Element-420">\mathbf{u} \in U</script>, <script type="math/tex" id="MathJax-Element-421">\mathbf{v} \in U^\perp.</script></p>
+
+<p>При этом вектор <script type="math/tex" id="MathJax-Element-422">\mathbf{u}</script> — ортогональная проекция вектора <script type="math/tex" id="MathJax-Element-423">\mathbf{x}</script> на <script type="math/tex" id="MathJax-Element-424">U</script>, а <script type="math/tex" id="MathJax-Element-425">\mathbf{v}</script> — ортогональная составляющая вектора <script type="math/tex" id="MathJax-Element-426">\mathbf{x}</script>.</p>
+
+
+
+<h4 id="10-что-собои-представляет-ортогональное-дополнение-к-ортогональному-дополнению">10. Что собой представляет ортогональное дополнение к ортогональному дополнению?</h4>
+
+<p>Ортогональное дополнение к ортогональному дополнению представляет собой само подространство:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-427">
+(U^\perp)^\perp = U.
+</script></p>
+
+
+
+<h4 id="11-выпишите-формулу-для-ортогональнои-проекции-вектора-на-подпространство-заданное-в-виде-линеинои-оболочки-конечного-набора-векторов">11. Выпишите формулу для ортогональной проекции вектора на подпространство, заданное в виде линейной оболочки конечного набора векторов.</h4>
+
+<p>Если <script type="math/tex" id="MathJax-Element-428">U = \langle e_1, \dots, e_n \rangle</script> и <script type="math/tex" id="MathJax-Element-429">e_1, \dots, e_n</script> — линейно независимы, то</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-430">
+x_U = - \frac{1}{|\Gamma|} \begin{pmatrix}
+(e_1, e_1) & \dots & (e_1, e_n) & (e_1, x) \\
+\vdots & \ddots & \vdots & \vdots \\
+(e_n, e_1) & \dots & (e_n, e_n) & (e_n, x) \\
+e_1 & \dots & e_n & 0
+\end{pmatrix}.
+</script></p>
+
+
+
+<h4 id="12-выпишите-формулу-для-вычисления-расстояния-с-помощью-определителеи-матриц-грама">12. Выпишите формулу для вычисления расстояния с помощью определителей матриц Грама.</h4>
+
+<p>Расстояние от точки <script type="math/tex" id="MathJax-Element-431">x</script> до линейного многообразия <script type="math/tex" id="MathJax-Element-432">x_0 + \langle x_1, \dots, x_n \rangle</script> вычисляется по формуле</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-433">
+d = \sqrt{\frac{\Gamma(x_1, \dots, x_n, x_0 - x)}{\Gamma(x_1, \dots, x_n)}},
+</script></p>
+
+<p>где <script type="math/tex" id="MathJax-Element-434">\Gamma(x_1, \dots, x_n)</script> — определитель Грама системы векторов.</p>
+
+
+
+<h2 id="8-операторы-в-евклидовых-пространствах">8. Операторы в евклидовых пространствах.</h2>
+
+
+
+<h4 id="1-даите-определение-сопряженного-оператора">1. Дайте определение сопряженного оператора.</h4>
+
+<p>Оператор <script type="math/tex" id="MathJax-Element-435">A^*</script>, сопряженный к <script type="math/tex" id="MathJax-Element-436">A</script>:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-437">
+(A \mathbf{x}, \mathbf{y}) = (\mathbf{x}, A^* \mathbf{y}).
+</script></p>
+
+
+
+<h4 id="2-даите-определение-самосопряженного-симметрического-оператора">2. Дайте определение самосопряженного (симметрического) оператора.</h4>
+
+<p>Оператор, который равен своему сопряженному:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-438">
+A = A^*.
+</script></p>
+
+
+
+<h4 id="3-даите-определение-ортогонального-оператора">3. Дайте определение ортогонального оператора.</h4>
+
+<p>Ортогональный оператор <script type="math/tex" id="MathJax-Element-439">A</script>:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-440">
+(A \mathbf{x}, A \mathbf{y}) = (\mathbf{x}, \mathbf{x}).
+</script></p>
+
+
+
+<h4 id="4-как-наити-матрицу-сопряженного-оператора">4. Как найти матрицу сопряженного оператора?</h4>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-441">
+A^* = \Gamma^{-1} A^T \Gamma,
+</script></p>
+
+<p>где <script type="math/tex" id="MathJax-Element-442">\Gamma</script> — матрица Грама данного базиса.</p>
+
+
+
+<h4 id="5-какое-своиство-есть-у-матрицы-самосопряженного-оператора-в-ортонормированном-базисе">5. Какое свойство есть у матрицы самосопряженного оператора в ортонормированном базисе?</h4>
+
+<p>Она симметричная (<script type="math/tex" id="MathJax-Element-443">A = A^T</script>).</p>
+
+
+
+<h4 id="6-сформулируите-определение-ортогональнои-матрицы">6. Сформулируйте определение ортогональной матрицы.</h4>
+
+<p>Ортогональная матрица <script type="math/tex" id="MathJax-Element-444">A</script>:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-445">
+A^{-1} = A^T
+</script></p>
+
+<p>или</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-446">
+a_{1i} a_{1j} + \dots + a_{ni} a_{nj} = \begin{cases}
+0 \quad при \quad i \neq j, \\
+1 \quad при \quad i = j.
+\end{cases}
+</script></p>
+
+
+
+<h4 id="7-что-можно-сказать-про-собственные-векторы-самосопряженного-оператора-отвечающие-разным-собственным-значениям">7. Что можно сказать про собственные векторы самосопряженного оператора, отвечающие разным собственным значениям?</h4>
+
+<p>Они взаимно ортогональны.</p>
+
+
+
+<h4 id="8-каким-своиством-обладают-собственные-значения-самосопряженного-оператора">8. Каким свойством обладают собственные значения самосопряженного оператора?</h4>
+
+<p>Они вещественные.</p>
+
+
+
+<h4 id="9-сформулируите-критерии-ортогональности-оператора-использующии-его-матрицу">9. Сформулируйте критерий ортогональности оператора, использующий его матрицу.</h4>
+
+<p>Его матрица в некотором ортонормированном базисе ортогональна.</p>
+
+
+
+<h4 id="10-сформулируите-теорему-о-существовании-для-самосопряженного-оператора-базиса-из-собственных-векторов">10. Сформулируйте теорему о существовании для самосопряженного оператора базиса из собственных векторов.</h4>
+
+<p>Для любого самосопряженного оператора <script type="math/tex" id="MathJax-Element-447">A</script> существует ортонормированный базис из его собственных векторов. В этом базисе матрица оператора имеет диагональный вид.</p>
+
+
+
+<h2 id="9-квадратичные-формы">9. Квадратичные формы.</h2>
+
+
+
+<h4 id="1-даите-определение-квадратичнои-формы">1. Дайте определение квадратичной формы.</h4>
+
+<p>Однородный многочлен второй степени от <script type="math/tex" id="MathJax-Element-448">n</script> переменных с действительными коэффициентами:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-449">
+\sum_{i=1}^n a_{ii} x_i^2 + 2 \sum_{1 \leq i < j \leq n} a_{ij} x_i x_j.
+</script></p>
+
+<p>В матричном виде:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-450">
+x^T A x,
+</script></p>
+
+<p>где <script type="math/tex" id="MathJax-Element-451">A</script> — матрица квадратичной формы:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-452">
+A = \begin{pmatrix}
+a_{11} & \dots & a_{1n} \\
+\vdots & \vdots & \vdots \\
+a_{n1} & \dots & a_{nn}
+\end{pmatrix}.
+</script></p>
+
+
+
+<h4 id="2-выпишите-формулу-для-преобразования-квадратичнои-формы-при-замене-базиса">2. Выпишите формулу для преобразования квадратичной формы при замене базиса.</h4>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-453">
+A_{e'} = T^T_{e \rightarrow e'} A_e T_{e \rightarrow e'}
+</script></p>
+
+
+
+<h4 id="3-сформулируите-теорему-об-инвариантности-ранга-матрицы-квадратичнои-формы">3. Сформулируйте теорему об инвариантности ранга матрицы квадратичной формы.</h4>
+
+<p>Ранг матрицы квадратичной формы не меняется при переходах между базисами и равен:</p>
+
+<ul>
+<li>числу ненулевых коэффициентов в любом ее каноническом виде;</li>
+<li>количеству ненулевых собственных значений этой матрицы (с учетом кратности).</li>
+</ul>
+
+
+
+<h4 id="4-даите-определения-положительнои-и-отрицательнои-определенности-квадратичнои-формы">4. Дайте определения положительной и отрицательной определенности квадратичной формы.</h4>
+
+<p>Квадратичная форма <script type="math/tex" id="MathJax-Element-454">f(x) = x^T A x</script> называется</p>
+
+<ul>
+<li>положительно определенной, если <script type="math/tex" id="MathJax-Element-455">x \neq 0 \Rightarrow f(x) > 0</script>;</li>
+<li>отрицательно определенной, если <script type="math/tex" id="MathJax-Element-456">x \neq 0 \Rightarrow f(x) < 0</script>.</li>
+</ul>
+
+
+
+<h4 id="5-какую-квадратичную-форму-называют-знакопеременнои">5. Какую квадратичную форму называют знакопеременной?</h4>
+
+<p>Такую, что <script type="math/tex" id="MathJax-Element-457">\exists x : f(x) > 0</script> и <script type="math/tex" id="MathJax-Element-458">\exists y : f(y) < 0</script>.</p>
+
+
+
+<h4 id="6-сформулируите-критерии-сильвестра-положительнои-определенности-квадратичнои-формы">6. Сформулируйте критерий Сильвестра положительной определенности квадратичной формы.</h4>
+
+<p>Положительно определена тогда и только тогда, когда</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-459">
+\Delta_1 > 0, \Delta_2 > 0, \dots, \Delta_n > 0,
+</script></p>
+
+<p>где <script type="math/tex" id="MathJax-Element-460">\Delta_i</script> — угловые миноры матрицы этой квадратичной формы:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-461">
+\Delta_i = \begin{vmatrix}
+a_{11} & \dots & a_{1i} \\
+\vdots & \vdots & \vdots \\
+a_{i1} & \dots & a_{ii} \\
+\end{vmatrix}.
+</script></p>
+
+
+
+<h4 id="7-сформулируите-следствие-критерия-сильвестра-для-отрицательнои-определенности-квадратичнои-формы">7. Сформулируйте следствие критерия Сильвестра для отрицательной определенности квадратичной формы.</h4>
+
+<p>Отрицательно определена тогда и только тогда, когда</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-462">
+\Delta_1 < 0 \\
+\Delta_2 > 0 \\
+\Delta_3 < 0 \\
+\dots \\
+(-1)^n \Delta_n > 0
+</script></p>
+
+<p>(знаки угловых миноров чередуются, начиная с минуса).</p>
+
+
+
+<h4 id="8-даите-определения-канонического-и-нормального-вида-квадратичнои-формы">8. Дайте определения канонического и нормального вида квадратичной формы.</h4>
+
+<p>Канонический вид имеет квадратичная форма, не имеющая попарных произведений переменных:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-463">
+a_1 x_1^2 + \dots + a_n x_n^2.
+</script></p>
+
+<p>Нормальный вид имеет квадратичная форма</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-464">
+\epsilon_1 x_1^2 + \dots + \epsilon_n x_n^2,
+</script></p>
+
+<p>где <script type="math/tex" id="MathJax-Element-465">\epsilon_i = \pm 1</script>.</p>
+
+
+
+<h4 id="9-сформулируите-закон-инерции-квадратичных-форм-что-такое-индексы-инерции">9. Сформулируйте закон инерции квадратичных форм. Что такое индексы инерции?</h4>
+
+<p>Количество положительных и отрицательных коэффициентов квадратичной формы в любом ее каноническом виде одинаковое.</p>
+
+
+
+<h4 id="10-сформулируите-теорему-о-приведении-квадратичных-форм-к-диагональному-виду-к-главным-осям-при-помощи-ортогональнои-замены-координат">10. Сформулируйте теорему о приведении квадратичных форм к диагональному виду (к главным осям) при помощи ортогональной замены координат.</h4>
+
+<p>Любую квадратичную форму ортогональным преобразованием можно привести к каноническому виду.</p>
+
+
+
+<h2 id="10-кривые-и-поверхности-второго-порядка">10. Кривые и поверхности второго порядка.</h2>
+
+
+
+<h4 id="1-даите-определение-эллипса-как-геометрического-места-точек-выпишите-его-каноническое-уравнение">1. Дайте определение эллипса как геометрического места точек. Выпишите его каноническое уравнение.</h4>
+
+<p>Эллипс — это геометрическое место точек, для которых сумма расстояний до двух заданных точек (фокусов эллипса) постоянна.</p>
+
+<p>Каноническое уравнение:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-466">
+\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1.
+</script></p>
+
+
+
+<h4 id="2-что-такое-эксцентриситет-эллипса-в-каких-пределах-он-может-меняться">2. Что такое эксцентриситет эллипса? В каких пределах он может меняться?</h4>
+
+<p>Эксцентриситет эллписа:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-467">
+e = \frac{c}{a} = \sqrt{1 - \frac{b^2}{a^2}},
+</script></p>
+
+<p>где <script type="math/tex" id="MathJax-Element-468">a</script> — малая полуось, <script type="math/tex" id="MathJax-Element-469">b</script> — большая, <script type="math/tex" id="MathJax-Element-470">c</script> — фокальное расстояние.</p>
+
+<p>Для эллипса <script type="math/tex" id="MathJax-Element-471">0 \leq e < 1</script>.</p>
+
+
+
+<h4 id="3-даите-определение-гиперболы-как-геометрического-места-точек-выпишите-ее-каноническое-уравнение">3. Дайте определение гиперболы как геометрического места точек. Выпишите её каноническое уравнение.</h4>
+
+<p>Эллипс — это геометрическое место точек, для которых разность расстояний до двух заданных точек (фокусов гиперболы) постоянна.</p>
+
+<p>Каноническое уравнение:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-472">
+\frac{x^2}{a^2} - \frac{y^2}{b^2} = 1.
+</script></p>
+
+
+
+<h4 id="4-что-такое-эксцентриситет-гиперболы-в-каких-пределах-он-может-меняться">4. Что такое эксцентриситет гиперболы? В каких пределах он может меняться?</h4>
+
+<p>Эксцентриситет гиперболы:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-473">
+e = \frac{c}{a} = \sqrt{1 + \frac{b^2}{a^2}},
+</script></p>
+
+<p>где <script type="math/tex" id="MathJax-Element-474">a</script> — вещественная полуось, <script type="math/tex" id="MathJax-Element-475">b</script> — мнимая, <script type="math/tex" id="MathJax-Element-476">c</script> — фокальное расстояние.</p>
+
+<p>Для гиперболы <script type="math/tex" id="MathJax-Element-477">e > 1</script>.</p>
+
+
+
+<h4 id="5-даите-определение-параболы-как-геометрического-места-точек-выпишите-его-каноническое-уравнение">5. Дайте определение параболы как геометрического места точек. Выпишите его каноническое уравнение.</h4>
+
+<p>Парабола — это геометрическое место точек, для которых расстояние до заданной точки (фокуса параболы) равно расстоянию до заданной прямой (директрисы параболы).</p>
+
+<p>Каноническое уравнение:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-478">
+y^2 = 2px.
+</script></p>
+
+
+
+<h4 id="6-даите-определение-поверхности-вращения">6. Дайте определение поверхности вращения.</h4>
+
+<p>Если кривая <script type="math/tex" id="MathJax-Element-479">\gamma</script> и прямая <script type="math/tex" id="MathJax-Element-480">L</script> принадлежат одной плоскости, то поверхность вращения определяется как множество всех окружностей таких, что:</p>
+
+<ul>
+<li>их центры принадлежат <script type="math/tex" id="MathJax-Element-481">L</script>;</li>
+<li>их плоскости перпендикулярны <script type="math/tex" id="MathJax-Element-482">L</script>;</li>
+<li>они пересекают <script type="math/tex" id="MathJax-Element-483">\gamma</script>.</li>
+</ul>
+
+
+
+<h4 id="7-даите-определение-цилиндрическои-поверхности">7. Дайте определение цилиндрической поверхности.</h4>
+
+<p>Поверхность, образованная движением образующей прямой вдоль кривой, да таким, что прямая все время параллельна сама себе.</p>
+
+
+
+<h4 id="8-даите-определение-линеичатои-поверхности-привести-три-примера">8. Дайте определение линейчатой поверхности. Привести три примера.</h4>
+
+<p>Поверхность, образованная движением прямой линии.</p>
+
+<p>Примеры:</p>
+
+<ul>
+<li>однополостный гиперболоид;</li>
+<li>гиперболический параболоид;</li>
+<li>параболический цилиндр.</li>
+</ul>
+
+
+
+<h4 id="9-запишите-канонические-уравнения-эллиптического-гиперболического-и-параболического-цилиндров">9. Запишите канонические уравнения эллиптического, гиперболического и параболического цилиндров.</h4>
+
+<p>Эллиптический:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-484">
+\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1.
+</script></p>
+
+<p>Гиперболический:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-485">
+\frac{x^2}{a^2} - \frac{y^2}{b^2} = 1.
+</script></p>
+
+<p>Параболический:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-486">
+y^2 = 2px.
+</script></p>
+
+
+
+<h4 id="10-запишите-канонические-уравнения-эллипсоида-однополостного-гиперболоида-двуполостного-гиперболоида">10. Запишите канонические уравнения эллипсоида, однополостного гиперболоида, двуполостного гиперболоида.</h4>
+
+<p>Эллипсоид:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-487">
+\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1.
+</script></p>
+
+<p>Однополостный гиперболоид:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-488">
+\frac{x^2}{a^2}+\frac{y^2}{b^2}-\frac{z^2}{c^2}=1.
+</script></p>
+
+<p>Двуполостный гиперболоид:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-489">
+\frac{x^2}{a^2}+\frac{y^2}{b^2}-\frac{z^2}{c^2}=-1.
+</script></p>
+
+
+
+<h4 id="11-запишите-канонические-уравнения-эллиптического-параболоида-гиперболического-параболоида">11. Запишите канонические уравнения эллиптического параболоида, гиперболического параболоида.</h4>
+
+<p>Эллиптический параболоид:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-490">
+\frac{x^2}{a^2}+\frac{y^2}{b^2}=z
+</script></p>
+
+<p>Гиперболический параболоид:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-491">
+\frac{x^2}{a^2}-\frac{y^2}{b^2}=2pz.
+</script></p>
+
+
+
+<h4 id="12-сформулируите-теорему-о-классификации-кривых-второго-порядка">12. Сформулируйте теорему о классификации кривых второго порядка.</h4>
+
+<p>Для любой кривой второго порядка существует прямоугольная декартова система координат <script type="math/tex" id="MathJax-Element-492">Oxy</script>, в которой ее уравнение будет иметь один из следующих видов:</p>
+
+<p>Эллиптический тип:</p>
+
+<ul>
+<li>эллипс: <script type="math/tex" id="MathJax-Element-493">\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1</script>, где <script type="math/tex" id="MathJax-Element-494">a \geq b > 0</script>;</li>
+<li>пустое множество: <script type="math/tex" id="MathJax-Element-495">\frac{x^2}{a^2} + \frac{y^2}{b^2} = -1</script>;</li>
+<li>точка: <script type="math/tex" id="MathJax-Element-496">\frac{x^2}{a^2} + \frac{y^2}{b^2} = 0</script>.</li>
+</ul>
+
+<p>Гиперболический тип:</p>
+
+<ul>
+<li>гипербола: <script type="math/tex" id="MathJax-Element-497">\frac{x^2}{a^2} - \frac{y^2}{b^2} = 1</script>, где <script type="math/tex" id="MathJax-Element-498">a > 0, b > 0</script>;</li>
+<li>пара пересекающихся прямых: <script type="math/tex" id="MathJax-Element-499">\frac{x^2}{a^2} - \frac{y^2}{b^2} = 0</script>.</li>
+</ul>
+
+<p>Параболический тип:</p>
+
+<ul>
+<li>парабола: <script type="math/tex" id="MathJax-Element-500">y^2 = 2px</script>;</li>
+<li>пара параллельных прямых: <script type="math/tex" id="MathJax-Element-501">y^2 = d</script>, где <script type="math/tex" id="MathJax-Element-502">d > 0</script>;</li>
+<li>пустое множество: <script type="math/tex" id="MathJax-Element-503">y^2 = -d</script>, где <script type="math/tex" id="MathJax-Element-504">d > 0</script>; </li>
+<li>прямая <script type="math/tex" id="MathJax-Element-505">y^2 = 0</script>.</li>
+</ul></div></body>
+</html>
